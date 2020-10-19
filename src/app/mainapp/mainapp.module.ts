@@ -27,6 +27,7 @@ import { ContactPageComponent } from './contact-page/contact-page.component';
 import { MainContactComponent } from './contact-page/main-contact/main-contact.component';
 import { MainContactMapComponent } from './contact-page/main-contact-map/main-contact-map.component';
 import {BreadcrumbModule} from 'xng-breadcrumb';
+import {CarouselModule} from "ngx-bootstrap/carousel";
 
 
 
@@ -60,7 +61,9 @@ import {BreadcrumbModule} from 'xng-breadcrumb';
   imports: [
     CommonModule,
     MainappRoutingModule,
-    BreadcrumbModule
-  ]
+    BreadcrumbModule,
+    CarouselModule.forRoot()
+  ],
+  exports:[]
 })
 export class MainappModule { }
