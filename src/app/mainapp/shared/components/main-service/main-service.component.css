@@ -1,0 +1,56 @@
+/* :: Services */
+.services{
+  background-color: #F9F9F9;
+}
+.services-item{
+  margin-bottom: 30px;
+}
+.services-item .item-icon{
+  font-size: 45px;
+  float: left;
+  line-height: 1;
+  color: #3EB7E9;
+}
+.services-2 .services-item .item-icon,
+.department-2 .services-item .item-icon{
+  float: none;
+}
+.services-item:hover .item-icon{
+  -webkit-transform: scale(0.8);
+  -ms-transform: scale(0.8);
+  transform: scale(0.8);
+}
+.services-item .item-content{
+  padding-left: 60px;
+}
+.services-2 .services-item .item-content,
+.department-2 .services-item .item-content{
+
+  padding-left: 0;
+}
+.services-item .item-content h4{
+  color: #222;
+  font-weight: 800;
+  font-size: 20px;
+  line-height: 29px;
+  margin-bottom: 15px;
+}
+.services-2 .services-item .item-content h4,
+.department-2 .services-item .item-content h4{
+  margin-top: 25px;
+}
+.services-item .item-content p{
+  margin-bottom: 0;
+}
+.services-item .item-content a{
+  color: #222;
+  position: relative;
+  text-transform: capitalize;
+  font-size: 14px;
+  font-weight: 700;
+  margin-top: 15px;
+  display: inline-block;
+}
+.services-item .item-content a:hover{
+  color: #3EB7E9;
+}

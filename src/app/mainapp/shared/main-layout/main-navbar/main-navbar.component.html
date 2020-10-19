@@ -1,0 +1,113 @@
+
+<nav class="nav-box fixed-top">
+  <div class="container">
+    <div class="top-nav">
+      <div class="logo">
+        <a [routerLink]="['home']"><img class="img-fluid" src="../../../../../assets/images/logo/01_logo.png" alt="01 Logo"></a>
+        <a href="#open-nav-bar-menu" class="open-nav-bar">
+          <span></span>
+          <span></span>
+          <span></span>
+        </a>
+      </div>
+      <div class="nav-info">
+        <div class="box">
+          <div class="info">
+            <i class="flaticon-emergency-call"></i>
+            <ul class="text-info">
+              <li><a href="#"><span>Phone : </span>+(002) 0174-8812-598</a></li>
+              <li><a href="#"><span>Email : </span>Hello@Al-Anwar.com</a></li>
+            </ul>
+          </div>
+          <a href="01_appointment.html" class="btn-1">Make An Appointment</a>
+        </div>
+      </div>
+    </div>
+    <div class="nav-bar" id="open-nav-bar-menu">
+      <div class="box">
+        <ul class="level-1">
+          <li class="has-menu">
+            <a [routerLink]="['home']" class="color-active">Home</a>
+            <ul class="level-2">
+              <li><a [routerLink]="['home']">01 Home</a></li>
+              <li><a [routerLink]="['home']">02 Home</a></li>
+              <li><a [routerLink]="['home']">03 Home</a></li>
+            </ul>
+          </li>
+          <li class="has-menu">
+            <a [routerLink]="['about']">About Us</a>
+            <ul class="level-2">
+              <li><a [routerLink]="['about']">About Us 1</a></li>
+              <li><a [routerLink]="['about']">About Us 2</a></li>
+              <li><a [routerLink]="['about']">About Us 3</a></li>
+            </ul>
+          </li>
+          <li class="has-menu">
+            <a [routerLink]="['doctor']">Doctors</a>
+            <ul class="level-2">
+              <li><a [routerLink]="['doctor']">Doctor 1</a></li>
+              <li><a [routerLink]="['doctor']">Doctor 2</a></li>
+            </ul>
+          </li>
+          <li class="has-menu">
+            <a [routerLink]="['department']">Departments</a>
+            <ul class="level-2">
+              <li><a [routerLink]="['department']">Departments 1</a></li>
+              <li><a [routerLink]="['department']">Departments 2</a></li>
+            </ul>
+          </li>
+          <li class="has-menu">
+            <a [routerLink]="['blog']">Blog</a>
+            <ul class="level-2">
+              <li><a [routerLink]="['blog']">Blog Standerd</a></li>
+              <li><a [routerLink]="['blog']">Blog Sidebar</a></li>
+            </ul>
+          </li>
+          <li class="has-menu">
+            <a [routerLink]="['shop']">Shop</a>
+            <ul class="level-2">
+              <li><a [routerLink]="['shop']">Shop</a></li>
+              <li><a [routerLink]="['shop']">Single Product</a></li>
+            </ul>
+          </li>
+          <li><a [routerLink]="['contact']">Contact Us</a></li>
+        </ul>
+        <ul class="level-1">
+          <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+          <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+          <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+          <li class="cart">
+            <a href="#"><i class="fas fa-shopping-cart"></i></a>
+            <div class="cart-popup">
+              <div class="item">
+                <img class="img-fluid" src="../../../../../assets/images/shop/01_shop.jpg" alt="01 Shop">
+                <div class="item-content">
+                  <div>Mismo Briefcase</div>
+                  <span>2 x $ 38.00</span>
+                </div>
+                <span class="delete-item">x</span>
+              </div>
+              <div class="item">
+                <img class="img-fluid" src="../../../../../assets/images/shop/02_shop.jpg" alt="02 Shop">
+                <div class="item-content">
+                  <div>Brown Leather</div>
+                  <span>1 x $ 28.00</span>
+                </div>
+                <span class="delete-item">x</span>
+              </div>
+              <div class="subtotal">
+                <span>Subtotal:</span>
+                <span>$ 88.00</span>
+              </div>
+              <div class="button-cart">
+                <button class="btn-1">View Cart</button>
+                <button class="btn-3">Checkout</button>
+              </div>
+            </div>
+          </li>
+          <li><a href="#" class="open-search"><i class="fas fa-search"></i></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>

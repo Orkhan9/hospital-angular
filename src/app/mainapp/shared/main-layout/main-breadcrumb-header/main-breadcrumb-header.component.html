@@ -1,0 +1,18 @@
+<ng-container *ngIf="(breadcrumb$ | async) as breadcrumbs">
+  <section *ngIf="breadcrumbs.length > 0" class="breadcrumb-header" id="page" style="background-image: url(../../../../../assets/images/breadcrumb-header/02_breadcrumb-header.jpg)">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 offset-lg-3">
+        <div class="breadcrumb-box text-center">
+          <h1>{{breadcrumbs.length > 0 && breadcrumbs[breadcrumbs.length-1].label | titlecase}}</h1>
+          <p>Al-Anwar are a professional medical &amp; health care services provider institutions.</p>
+          <ul class="list-breadcrumb">
+            <xng-breadcrumb></xng-breadcrumb>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</ng-container>

@@ -1,0 +1,132 @@
+/* :: Shop */
+.shop-item{
+  margin-bottom: 30px;
+}
+.shop-item .item-img{
+  position: relative;
+}
+.shop-item .item-img img{
+  width: 100%;
+}
+.shop-item .item-img .add-to-card{
+  position: absolute;
+  background-color: rgba(62, 183, 233, 0.9);
+  top: 10px;
+  left: 10px;
+  bottom: 10px;
+  right: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transform: scaleY(0);
+  -ms-transform: scaleY(0);
+  transform: scaleY(0);
+  -webkit-transform-origin: bottom;
+  -ms-transform-origin: bottom;
+  transform-origin: bottom;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+.shop-item:hover .item-img .add-to-card{
+  -webkit-transform: scaleY(1);
+  -ms-transform: scaleY(1);
+  transform: scaleY(1);
+  opacity: 1;
+  visibility: visible;
+}
+.shop-item .item-text h4{
+  font-size: 16px;
+  line-height: 24px;
+  margin-bottom: 8px;
+  color: #222;
+  font-weight: bold;
+  font-family: 'Lato', sans-serif;
+  margin-top: 20px;
+  padding: 0 15px;
+  text-transform: capitalize;
+}
+.shop-item .item-text h4:hover{
+  color: #3EB7E9;
+}
+.shop-item .item-text span{
+  font-size: 13px;
+  font-weight: 800;
+  line-height: 1;
+}
+.shop.area .text-box-details .title-product{
+  font-size: 20px;
+  line-height: 1.2;
+  color: #222;
+  font-weight: bold;
+  font-family: 'Lato', sans-serif;
+  margin-bottom: 20px;
+  text-transform: capitalize;
+}
+.shop.area .text-box-details .item-review span{
+  display: inline-block;
+  font-size: 14px;
+  color: #A5A5A5;
+}
+.shop.area .text-box-details .item-review span i.active{
+  color: #3EB7E9;
+}
+.shop.area .text-box-details .item-review span.reviews{
+  margin-left: 40px;
+}
+.shop.area .text-box-details .item-review span.spance-span{
+  margin: 0 5px;
+}
+.shop.area .text-box-details .item-review span a{
+  font-size: 14px;
+  color: #A5A5A5;
+}
+.shop.area .text-box-details .item-review span a:hover{
+  color: #3EB7E9;
+}
+.shop.area .text-box-details .item-price{
+  font-size: 18px;
+  font-weight: 800;
+  line-height: 1;
+  color: #3EB7E9;
+  margin-top: 15px;
+  margin-bottom: 25px;
+}
+.shop.area .text-box-details .btn-3{
+  margin-bottom: 25px;
+}
+.shop.area .text-box-details .list-details li{
+  line-height: 2;
+  font-size: 16px;
+}
+.shop.area .text-box-details .list-details li span{
+  font-weight: bold;
+  color: #222;
+  min-width: 120px;
+  display: inline-block;
+}
+.shop.area .text-box-details .list-details li a{
+  color: #222;
+  margin-right: 20px;
+}
+.shop.area .text-box-details .list-details li a:hover{
+  color: #3EB7E9;
+}
+.shop.area .description{
+  margin-top: 50px;
+}
+.shop.area .description ul li {
+  display: inline-block;
+  margin-right: 5px;
+}
+.shop.area .description p{
+  margin: 25px 0 0 0
+}

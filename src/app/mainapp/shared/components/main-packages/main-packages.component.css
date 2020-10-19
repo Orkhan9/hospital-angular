@@ -1,0 +1,17 @@
+/* :: Get Now Packages */
+.get-now-packages{
+  /*background-image: url(../images/get-now-packages/01_get-now-packages.jpg);*/
+  position: relative;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+.get-now-packages .sec-title{
+  margin-bottom: 40px;
+}
+.get-now-packages .sec-title h3{
+  margin-bottom: 0;
+  font-size: 50px;
+  color: #FFF;
+}

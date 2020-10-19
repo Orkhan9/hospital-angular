@@ -1,0 +1,58 @@
+/* :: About Us */
+.about{
+  /*background-image: url(../images/about/02_about.png);*/
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.about .text-box .sec-title{
+  margin-bottom: 20px;
+}
+.about .text-box .sec-title h3{
+  margin: 0;
+}
+.about .text-box p:last-of-type{
+  margin-bottom: 0;
+}
+.about .text-box .signature{
+  width: 160px;
+  margin: 28px 0;
+  display: block;
+}
+.about .img-box{
+  position: relative;
+}
+.about .img-box .logo-website{
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background-color: #3EB7E9;
+  padding: 20px;
+}
+.about .img-box .logo-website img{
+  width: 50px;
+}
+.open-hours{
+  background-color: #222;
+  padding: 80px 50px;
+}
+.open-hours h5{
+  font-weight: 600;
+  margin-bottom: 25px;
+  text-transform: capitalize;
+  color: #3EB7E9;
+  font-size: 18px;
+}
+.open-hours ul li{
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.1;
+  text-transform: capitalize;
+  margin-top: 15px;
+  display: block;
+  color: #FFF;
+}
+.open-hours ul li span{
+  float: right;
+  font-weight: bold;
+}

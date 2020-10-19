@@ -1,0 +1,27 @@
+/* :: Appointment */
+.appointment{
+  /*background-image: url(../images/appointment/01_appointment.jpg);*/
+  position: relative;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+.appointment-item{
+  background-color: #FFF;
+  padding: 80px;
+  -webkit-box-shadow: 0 8px 80px rgba(40, 40, 40, 0.08);
+  box-shadow: 0 8px 80px rgba(40, 40, 40, 0.08);
+}
+.header-2 .appointment-item{
+  padding: 40px;
+}
+.appointment-item .sec-title{
+  margin-bottom: 30px;
+}
+.appointment-item .sec-title h3{
+  margin: 0 0 20px 0;
+}
+.appointment-item .sec-title p{
+  font-size: 14px;
+}

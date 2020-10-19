@@ -1,0 +1,270 @@
+/*
+::
+:: Theme Name: Al-Anwar | Medical and Doctor HTML Template
+:: Email: Nourramadan144@gmail.com
+:: Author URI: https://themeforest.net/user/ar-coder
+:: Author: ar-coder
+:: Version: 1.0
+::
+*/
+
+/* :: Medium devices */
+@media (max-width: 991px) {
+
+    /* :: Navbar */
+    .top-nav{
+        padding: 20px;
+    }
+    .nav-box.active{
+        padding-bottom: 0;
+    }
+    .top-nav .logo{
+        float: none;
+        margin-bottom: 20px;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
+        -webkit-box-pack: justify;
+            -ms-flex-pack: justify;
+                justify-content: space-between;
+    }
+    .top-nav .logo .open-nav-bar{
+        display: block;
+        padding: 0;
+        border: none;
+        background-color: transparent;
+        outline: none;
+    }
+    .top-nav .logo .open-nav-bar span{
+        width: 20px;
+        height: 2px;
+        background-color: #222;
+        display: block;
+    }
+    .top-nav .logo .open-nav-bar:hover span{
+        background-color: #3EB7E9;
+    }
+    .top-nav .logo .open-nav-bar span:nth-of-type(2){
+        margin: 4px 0;
+    }
+    .top-nav .nav-info{
+        float: none;
+    }
+    .top-nav .nav-info .box{
+        -webkit-box-pack: justify;
+            -ms-flex-pack: justify;
+                justify-content: space-between;
+    }
+    .nav-bar{
+        margin: 0;
+        padding: 10px 20px;
+        background-color: #FFF;
+        max-height: 300px;
+        overflow: hidden;
+        overflow-y: scroll;
+        display: none;
+    }
+    .nav-box.active .nav-bar{
+        border-top: 1px solid rgba(165, 165, 165, 0.2);
+    }
+    .nav-bar .box{
+        display: block;
+    }
+    .nav-bar .box > ul > li{
+        display: block;
+    }
+    .nav-bar .box ul li a{
+        color: #222;
+        padding: 10px 0;
+    }
+    .nav-bar .box ul li.has-menu > a:after{
+        float: right;
+        background-color: #3EB7E9;
+        color: #FFF;
+        width: 20px;
+        height: 20px;
+        line-height: 20px;
+        text-align: center;
+        -webkit-transform: rotate(0deg);
+            -ms-transform: rotate(0deg);
+                transform: rotate(0deg)
+    }
+    .nav-bar .box ul li.has-menu > a.active:after{
+        -webkit-transform: rotate(90deg);
+            -ms-transform: rotate(90deg);
+                transform: rotate(90deg)
+    }
+    .nav-bar .box > ul ul{
+        -webkit-transform: unset;
+            -ms-transform: unset;
+                transform: unset;
+        opacity: unset;
+        visibility: unset;
+        position: unset;
+        padding: 0;
+        -webkit-box-shadow: none;
+                box-shadow: none;
+        display: none;
+    }
+    .nav-bar .box > ul ul li a{
+        color: #222;
+        font-size: 14px;
+        font-weight: 500;
+    }
+    .nav-bar .box > ul ul li:hover a,
+    .nav-bar .box > ul ul ul li:hover a{
+        -webkit-transform: unset !important;
+            -ms-transform: unset !important;
+                transform: unset !important;
+    }
+    .nav-bar.active{
+        display: block;
+    }
+    .nav-bar .box > ul ul.active{
+        display: block;
+    }
+    .nav-bar .box .level-1:last-of-type li{
+        display: inline-block;
+    }
+    .nav-bar .box ul li.cart{
+        display: none !important;
+    }
+    
+    /* :: Header 2 */
+    .header-2 .appointment-item{
+        margin-top: 50px;
+    }
+    
+    /* :: Feature */
+    .feature .feature-box{
+        width: 740px;
+        margin-top: -288px;
+    }
+    
+    /* :: About */
+    .about .text-box,
+    .about .img-box{
+        margin-bottom: 50px;
+    }
+    
+    /* :: About Us 2 */
+    .about-2 .col-lg-6{
+        padding: 0 15px;
+    }
+    .about-2 .img-box .about-img{
+        padding: 0;
+    }
+    .about-2 .img-box .about-img img{
+        width: 100%;
+    }
+    .about-2 .text-box{
+        margin: 50px 0px 0px 0px;
+    }
+    .about-2 .text-box .signature{
+        margin-bottom: 25px;
+    }
+    
+    /* :: Footer */
+    .footer .logo,
+    .footer .links,
+    .footer .news-item:last-of-type{
+        margin-bottom: 30px;
+    }
+    
+    /* :: Provide */
+    .provide .img-box{
+        margin-top: 50px;
+    }
+    .provide .img-box .provide-img img{
+        width: 100%;
+    }
+    
+    /* :: Feature About */
+    .feature-about .feature-item{
+        margin-bottom: 30px;
+    }
+    .feature-about .feature-item.last{
+        margin-bottom: 0;
+    }
+    
+    /* :: Departments Details And Services Details Page */
+    .departments-details .box-details,
+    .services-details .box-details{
+        margin-bottom: 50px;
+    }
+    
+    /* :: Widget */
+    .widget:first-of-type{
+        margin-top: 20px;
+    }
+    .blog.area .widget.one {
+        margin-top: 50px;
+    }
+    
+    /* :: Shop */
+    .shop.area .text-box-details{
+        margin-top: 50px;
+    }
+}
+
+/* :: Small devices */
+@media (max-width: 768px) {
+    
+    /* :: Navbar */
+    .top-nav .nav-info .btn-1{
+        padding: 0 30px;
+    }
+    
+    .header, .header .table-cell{
+        height: calc(100vh + 100px) !important;
+    }
+    /* :: Feature */
+    .feature .feature-box{
+        width: auto;
+        margin: 0;
+    }
+    .feature .feature-box .feature-item{
+        width: 100%;
+        margin-bottom: 30px;
+    }
+    .feature .feature-box .feature-item:last-of-type{
+        margin-bottom: 0;
+    }
+    .feature-2 .feature-item{
+        width: 100%;
+    }
+    
+    /* :: Footer */
+    .footer .reserved{
+        text-align: center;
+    }
+    .footer .reserved ul{
+        float: none;
+        margin-top: 22px;
+    }
+}
+
+/* :: Extra small devices */
+@media (max-width: 575px) {
+    
+    /* :: Navbar */
+    .top-nav .logo{
+        margin-bottom: 0;
+    }
+    .top-nav .nav-info{
+        display: none;
+    }
+    
+    /* :: Appointment */
+    .appointment .appointment-item{
+        padding: 35px;
+    }
+    
+    /* :: Breadcrumb Header */
+    .breadcrumb-header .breadcrumb-box h1{
+        font-size: 40px;
+    }
+}

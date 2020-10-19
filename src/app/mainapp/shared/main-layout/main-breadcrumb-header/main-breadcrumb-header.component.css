@@ -1,0 +1,49 @@
+/* :: Breadcrumb Header */
+.breadcrumb-header{
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  color: #FFF;
+  position: relative;
+  overflow: hidden;
+  padding: 300px 0 130px 0;
+}
+.breadcrumb-header .breadcrumb-box h1{
+  font-size: 60px;
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: .3px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  color: #222;
+}
+.breadcrumb-header .breadcrumb-box p{
+  text-transform: capitalize;
+  font-size: 16px;
+  color: #343434;
+  font-weight: 600;
+  line-height: 25px;
+}
+.breadcrumb-header .breadcrumb-box .list-breadcrumb{
+  margin-top: 30px;
+}
+.breadcrumb-header .breadcrumb-box .list-breadcrumb li{
+  display: inline-block;
+  position: relative;
+  margin-right: 10px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #343434;
+  text-transform: capitalize;
+}
+.breadcrumb-header .breadcrumb-box .list-breadcrumb li:last-of-type{
+  margin: 0;
+}
+.breadcrumb-header .breadcrumb-box .list-breadcrumb li a{
+  color: #343434;
+}
+.breadcrumb-header .breadcrumb-box .list-breadcrumb li:hover,
+.breadcrumb-header .breadcrumb-box .list-breadcrumb li:hover a{
+  color: #3EB7E9;
+}
