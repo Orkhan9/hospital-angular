@@ -28,6 +28,8 @@ import { MainContactComponent } from './contact-page/main-contact/main-contact.c
 import { MainContactMapComponent } from './contact-page/main-contact-map/main-contact-map.component';
 import {BreadcrumbModule} from 'xng-breadcrumb';
 import {CarouselModule} from "ngx-bootstrap/carousel";
+import { MainMultiCarouselComponent } from './shared/components/main-multi-carousel/main-multi-carousel.component';
+import {FormsModule} from '@angular/forms';
 
 
 
@@ -57,12 +59,14 @@ import {CarouselModule} from "ngx-bootstrap/carousel";
     ShopPageComponent,
     ContactPageComponent,
     MainContactComponent,
-    MainContactMapComponent,],
+    MainContactMapComponent,
+    MainMultiCarouselComponent,],
   imports: [
     CommonModule,
     MainappRoutingModule,
     BreadcrumbModule,
-    CarouselModule.forRoot()
+    CarouselModule.forRoot(),
+    FormsModule
   ],
   exports:[]
 })

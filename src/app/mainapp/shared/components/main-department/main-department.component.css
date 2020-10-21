@@ -1,6 +1,6 @@
 /* :: Department */
 .department{
-  background: #F9F9F9 url(../../../../../assets/images/breadcrumb-header/02_breadcrumb-header.jpg);
+  /*background: #F9F9F9 url(../../../../../assets/images/breadcrumb-header/02_breadcrumb-header.jpg);*/
   position: relative;
   background-position: center;
 }
