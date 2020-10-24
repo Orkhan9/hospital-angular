@@ -7,6 +7,7 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {LoadingInterceptor} from './core/_interceptor/LoadingInterceptor';
 import {NgxSpinnerModule} from 'ngx-spinner';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {ServiceService} from './service/service.service';
 
 
 
@@ -20,10 +21,12 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
     AppRoutingModule,
     HttpClientModule,
     NgxSpinnerModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpClientModule
   ],
   providers: [
-    {provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true}
+    {provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true},
+     ServiceService
     ],
   bootstrap: [AppComponent]
 })
