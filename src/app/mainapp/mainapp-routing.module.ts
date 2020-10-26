@@ -9,6 +9,7 @@ import {DepartmentPageComponent} from './department-page/department-page.compone
 import {BlogPageComponent} from './blog-page/blog-page.component';
 import {ShopPageComponent} from './shop-page/shop-page.component';
 import {ContactPageComponent} from './contact-page/contact-page.component';
+import {ServiceDetailPageComponent} from './service-detail-page/service-detail-page.component';
 
 const route:Routes=[
   {path:'',component:MainLayoutComponent,data:{breadcrumb:'Home'},children:[
@@ -20,6 +21,7 @@ const route:Routes=[
       {path:'blog',component:BlogPageComponent},
       {path:'shop',component:ShopPageComponent},
       {path:'contact',component:ContactPageComponent},
+      {path:'service/detail/:id',component:ServiceDetailPageComponent},
       {path:'**',redirectTo:'home',pathMatch:'full'}
     ]}
 

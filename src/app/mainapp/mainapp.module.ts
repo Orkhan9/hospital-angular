@@ -30,6 +30,8 @@ import {BreadcrumbModule} from 'xng-breadcrumb';
 import {CarouselModule} from "ngx-bootstrap/carousel";
 import { MainMultiCarouselComponent } from './shared/components/main-multi-carousel/main-multi-carousel.component';
 import {FormsModule} from '@angular/forms';
+import { MainFileuploadComponent } from './main-fileupload/main-fileupload.component';
+import { ServiceDetailPageComponent } from './service-detail-page/service-detail-page.component';
 
 
 
@@ -60,7 +62,9 @@ import {FormsModule} from '@angular/forms';
     ContactPageComponent,
     MainContactComponent,
     MainContactMapComponent,
-    MainMultiCarouselComponent,],
+    MainMultiCarouselComponent,
+    MainFileuploadComponent,
+    ServiceDetailPageComponent,],
   imports: [
     CommonModule,
     MainappRoutingModule,

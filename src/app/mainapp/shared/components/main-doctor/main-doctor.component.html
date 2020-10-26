@@ -14,51 +14,15 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-md-6 col-lg-4">
+      <div class="col-md-6 col-lg-4" *ngFor="let doctor of doctors">
         <div class="doctor-item">
           <div class="img-box">
             <img class="img-fluid" src="assets/images/doctors/01_doctors.jpg" alt="01 Doctor">
           </div>
           <div class="text-box text-center">
-            <h5>Dr. Micheal Jr Brian</h5>
-            <span>Orthopedics</span>
-            <p>Lorem Ipsum has been standard dummy.Lorem Ipsum is simply text of the printing.</p>
-            <ul>
-              <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-              <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-              <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-              <li><a href="#"><i class="fab fa-dribbble"></i></a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4">
-        <div class="doctor-item">
-          <div class="img-box">
-            <img class="img-fluid" src="assets/images/doctors/02_doctors.jpg" alt="02 Doctor">
-          </div>
-          <div class="text-box text-center">
-            <h5>Dr. Alex Martine</h5>
-            <span>Lab Test</span>
-            <p>Lorem Ipsum has been standard dummy.Lorem Ipsum is simply text of the printing.</p>
-            <ul>
-              <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-              <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-              <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-              <li><a href="#"><i class="fab fa-dribbble"></i></a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4">
-        <div class="doctor-item">
-          <div class="img-box">
-            <img class="img-fluid" src="assets/images/doctors/03_doctors.jpg" alt="03 Doctor">
-          </div>
-          <div class="text-box text-center">
-            <h5>Dr. Anwar Ramadan</h5>
-            <span>Pulmonology</span>
-            <p>Lorem Ipsum has been standard dummy.Lorem Ipsum is simply text of the printing.</p>
+            <h5>{{doctor.name}}</h5>
+            <span>{{doctor.profession}}</span>
+            <p>{{doctor.description}}</p>
             <ul>
               <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
               <li><a href="#"><i class="fab fa-twitter"></i></a></li>

@@ -1,13 +1,11 @@
-import {BrowserModule, HAMMER_GESTURE_CONFIG, HammerGestureConfig} from '@angular/platform-browser';
+import {BrowserModule} from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import {AppRoutingModule} from './app-routing.module';
-import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
-import {LoadingInterceptor} from './core/_interceptor/LoadingInterceptor';
+import {HttpClientModule} from '@angular/common/http';
 import {NgxSpinnerModule} from 'ngx-spinner';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
-import {ServiceService} from './service/service.service';
 
 
 
@@ -25,8 +23,6 @@ import {ServiceService} from './service/service.service';
     HttpClientModule
   ],
   providers: [
-    {provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true},
-     ServiceService
     ],
   bootstrap: [AppComponent]
 })

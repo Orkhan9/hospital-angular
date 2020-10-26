@@ -10,8 +10,10 @@ import {Observable} from 'rxjs';
 export class ServiceService {
   constructor(private http:HttpClient) { }
 
-  getAllService():Observable<Service[]> {
+  getAllServices():Observable<Service[]> {
     return this.http.get<Service[]>(environment.baseUrl+"/service");
-
-}
+  }
+  getService(id?){
+    return this.http.get<Service>(environment.baseUrl+"/service/"+id)
+  }
 }

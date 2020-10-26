@@ -14,82 +14,12 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-sm-6 col-md-4 col-lg-3">
+      <div class="col-sm-6 col-md-4 col-lg-3" *ngFor="let department of departments">
         <div class="services-item">
           <i class="item-icon flaticon-microscope"></i>
           <div class="item-content">
-            <h4>Lab Test Department</h4>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
-            <a href="01_departments.html">Read More</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-6 col-md-4 col-lg-3">
-        <div class="services-item">
-          <i class="item-icon flaticon-teeth"></i>
-          <div class="item-content">
-            <h4>Dental Department</h4>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
-            <a href="01_departments.html">Read More</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-6 col-md-4 col-lg-3">
-        <div class="services-item">
-          <i class="item-icon flaticon-atomic"></i>
-          <div class="item-content">
-            <h4>Neurology Department</h4>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
-            <a href="01_departments.html">Read More</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-6 col-md-4 col-lg-3">
-        <div class="services-item">
-          <i class="item-icon flaticon-joint"></i>
-          <div class="item-content">
-            <h4>Orthopedic Department</h4>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
-            <a href="01_departments.html">Read More</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-6 col-md-4 col-lg-3">
-        <div class="services-item">
-          <i class="item-icon flaticon-cardiogram-2"></i>
-          <div class="item-content">
-            <h4>Cardiology Department</h4>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
-            <a href="01_departments.html">Read More</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-6 col-md-4 col-lg-3">
-        <div class="services-item">
-          <i class="item-icon flaticon-pill"></i>
-          <div class="item-content">
-            <h4>Gynecology Department</h4>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
-            <a href="01_departments.html">Read More</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-6 col-md-4 col-lg-3">
-        <div class="services-item">
-          <i class="item-icon flaticon-lung"></i>
-          <div class="item-content">
-            <h4>Pulmonology Department</h4>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
-            <a href="01_departments.html">Read More</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-6 col-md-4 col-lg-3">
-        <div class="services-item">
-          <i class="item-icon flaticon-glasses"></i>
-          <div class="item-content">
-            <h4>Eye Department</h4>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+            <h4>{{department.name}}</h4>
+            <p>{{department.description}}</p>
             <a href="01_departments.html">Read More</a>
           </div>
         </div>
