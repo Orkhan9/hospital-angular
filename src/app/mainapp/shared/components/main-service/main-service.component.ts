@@ -16,8 +16,10 @@ export class MainServiceComponent implements OnInit {
   }
 
   getAllservice(){
-    this.serviceService.getAllServices().subscribe(service=>{
-      this.services=service
-    })
+
+    this.serviceService.getAllServices().subscribe(service=>
+      this.services=service);
+    console.log("nese")
   }
+
 }

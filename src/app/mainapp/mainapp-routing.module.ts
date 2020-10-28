@@ -26,7 +26,7 @@ const route:Routes=[
     ]}
 
 ]
-
+//main service component hardadi?
 @NgModule({
   declarations: [],
   imports: [

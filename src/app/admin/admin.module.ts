@@ -3,14 +3,17 @@ import { CommonModule } from '@angular/common';
 import {AdminLayoutComponent} from './shared/components/admin-layout/admin-layout.component';
 import {AdminNavbarComponent} from './shared/components/admin-navbar/admin-navbar.component';
 import {AdminRoutingModule} from './admin-routing.module';
+import {FormsModule} from "@angular/forms";
+import { RegisterComponent } from './admin-register/register.component';
 
 
 
 @NgModule({
-  declarations: [AdminLayoutComponent, AdminNavbarComponent],
+  declarations: [AdminLayoutComponent, AdminNavbarComponent, RegisterComponent],
   imports: [
     CommonModule,
-    AdminRoutingModule
+    AdminRoutingModule,
+    FormsModule
   ]
 })
 export class AdminModule { }
