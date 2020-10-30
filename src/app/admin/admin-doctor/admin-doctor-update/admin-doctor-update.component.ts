@@ -16,7 +16,7 @@ export class AdminDoctorUpdateComponent implements OnInit {
   departments:Department[];
   doctor:Doctor;
   @HostListener('window:beforeunload',['$event'])
-  unloadNotification($event:any){
+  unloadNotification($event:any, isSub:boolean){
     if (this.form.dirty){
       $event.returnValue=true;
     }
@@ -59,6 +59,7 @@ export class AdminDoctorUpdateComponent implements OnInit {
   onSubmit() {
     if(this.form.valid){
       let doctor=new Doctor();
+
       doctor.id=this.doctor.id,
       doctor.name=this.form.value.name;
       doctor.profession=this.form.value.profession;

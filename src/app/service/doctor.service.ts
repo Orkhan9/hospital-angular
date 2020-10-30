@@ -21,7 +21,7 @@ export class DoctorService {
   }
 
   getAllDepartments(){
-    return this.http.get<Department[]>(environment.baseUrl + 'doctor/departments')
+    return this.http.get<Department[]>(environment.baseUrl + 'department')
   }
 
   // getAllDepartments():Observable<Department[]>{
