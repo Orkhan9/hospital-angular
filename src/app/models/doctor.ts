@@ -5,4 +5,5 @@ export class Doctor {
   description:string;
   facebook:string;
   department:string;
+  departmentId:number
 }

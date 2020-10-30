@@ -9,6 +9,8 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {ErrorInterceptorProvider} from "./service/error.interceptor";
 import {AuthService} from "./admin/_service/auth.service";
 import {JwtHelperService} from "@auth0/angular-jwt";
+import {ToastrModule} from 'ngx-toastr';
+import {ModalModule} from 'ngx-bootstrap/modal';
 
 
 
@@ -23,6 +25,8 @@ import {JwtHelperService} from "@auth0/angular-jwt";
     HttpClientModule,
     NgxSpinnerModule,
     BrowserAnimationsModule,
+    ToastrModule.forRoot(),
+    ModalModule.forRoot(),
     HttpClientModule
   ],
   providers: [

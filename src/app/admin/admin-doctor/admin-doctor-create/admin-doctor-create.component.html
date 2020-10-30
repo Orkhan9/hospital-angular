@@ -1,1 +1,62 @@
-<p>admin-doctor-create works!</p>
+<div class="container mt-5">
+  <div class="row">
+    <div class="col">
+      <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label>Name</label>
+          <input type="text" formControlName="name" class="form-control" placeholder="name">
+          <div class="validation alert alert-danger" *ngIf="_name.invalid && _name.touched">
+            <div *ngIf="_name.errors?.required">
+              Name required
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Profession</label>
+          <input type="text" formControlName="profession" class="form-control" placeholder="profession">
+          <div class="validation alert alert-danger" *ngIf="_profession.invalid && _profession.touched">
+            <div *ngIf="_profession.errors?.required">
+              Profession required
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Description</label>
+          <input type="text" formControlName="description" class="form-control" placeholder="description">
+          <div class="validation alert alert-danger" *ngIf="_description.invalid && _description.touched">
+            <div *ngIf="_description.errors?.required">
+              Description required
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Facebook</label>
+          <input type="text" formControlName="facebook" class="form-control" placeholder="facebook">
+          <div class="validation alert alert-danger" *ngIf="_facebook.invalid && _facebook.touched">
+            <div *ngIf="_facebook.errors?.required">
+              Facebook required
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+
+          <label>Department</label>
+          <select formControlName="departmentId" class="form-control">
+            <option value="" disabled>Select Department</option>
+            <option value="{{department.id}}" *ngFor="let department of departments">{{department.name}}</option>
+          </select>
+          <div class="validation alert alert-danger" *ngIf="_departmentId.invalid && _departmentId.touched">
+            <div *ngIf="_departmentId.errors?.required">
+              Department required
+            </div>
+          </div>
+        </div>
+        <button type="submit" [disabled]="form.invalid" class="btn btn-primary btn-submit">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>

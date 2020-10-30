@@ -14,10 +14,10 @@ export class DepartmentService {
   }
 
   getAllDepartments():Observable<Department[]>{
-    return  this.http.get<Department[]>(environment.baseUrl+'/department')
+    return  this.http.get<Department[]>(environment.baseUrl+'department')
   }
 
   getDepartment(id){
-    return  this.http.get<Department>(environment.baseUrl+'/department/'+id)
+    return  this.http.get<Department>(environment.baseUrl+'department/'+id)
   }
 }
