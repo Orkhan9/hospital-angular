@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, HostListener, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {Department} from '../../../models/department';
 import {Doctor} from '../../../models/doctor';
@@ -15,6 +15,12 @@ export class AdminDoctorUpdateComponent implements OnInit {
   form: FormGroup;
   departments:Department[];
   doctor:Doctor;
+  @HostListener('window:beforeunload',['$event'])
+  unloadNotification($event:any){
+    if (this.form.dirty){
+      $event.returnValue=true;
+    }
+  }
   constructor(private doctorService:DoctorService,private route:Router
     ,private activatedRoute:ActivatedRoute,private toastr: ToastrService) { }
 

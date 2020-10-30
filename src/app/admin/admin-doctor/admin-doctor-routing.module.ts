@@ -5,11 +5,12 @@ import {AdminDoctorComponent} from './admin-doctor.component';
 import {AdminDoctorCreateComponent} from './admin-doctor-create/admin-doctor-create.component';
 import {AdminDoctorUpdateComponent} from './admin-doctor-update/admin-doctor-update.component';
 import {AdminDoctorDetailsComponent} from './admin-doctor-details/admin-doctor-details.component';
+import {PreventUnsavedGuard} from "../../guards/prevent-unsaved-guard";
 
 const route:Routes=[
   {path:'',component:AdminDoctorComponent},
   {path:'create',component:AdminDoctorCreateComponent},
-  {path:'update/:id',component:AdminDoctorUpdateComponent},
+  {path:'update/:id',component:AdminDoctorUpdateComponent,canDeactivate:[PreventUnsavedGuard]},
   {path:':id',component:AdminDoctorDetailsComponent}
 ]
 

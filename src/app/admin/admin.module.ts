@@ -5,6 +5,7 @@ import {AdminNavbarComponent} from './shared/components/admin-navbar/admin-navba
 import {AdminRoutingModule} from './admin-routing.module';
 import {FormsModule} from "@angular/forms";
 import { RegisterComponent } from './admin-register/register.component';
+import {BsDropdownModule} from "ngx-bootstrap/dropdown";
 
 
 
@@ -13,7 +14,8 @@ import { RegisterComponent } from './admin-register/register.component';
   imports: [
     CommonModule,
     AdminRoutingModule,
-    FormsModule
+    FormsModule,
+    BsDropdownModule
   ]
 })
 export class AdminModule { }

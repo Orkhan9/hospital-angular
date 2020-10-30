@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthService} from "../../../_service/auth.service";
 import {AlertifyService} from "../../../../service/alertify.service";
-import {JwtHelperService} from "@auth0/angular-jwt";
 
 @Component({
   selector: 'app-admin-navbar',
@@ -20,7 +19,7 @@ login(){
        // console.log("login succsesfuly")
       this.alertify.success("login successfuly")
     },error => {
-      // console.log("login failed"+error)
+       //console.log("login failed"+error)
       this.alertify.error(error)
     })
     console.log(this.model);

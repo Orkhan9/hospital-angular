@@ -1,16 +1,16 @@
 import {BrowserModule, HAMMER_GESTURE_CONFIG, HammerGestureConfig} from '@angular/platform-browser';
 import {NgModule, OnInit} from '@angular/core';
-
 import { AppComponent } from './app.component';
 import {AppRoutingModule} from './app-routing.module';
 import { HttpClientModule} from '@angular/common/http';
 import {NgxSpinnerModule} from 'ngx-spinner';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {ErrorInterceptorProvider} from "./service/error.interceptor";
-import {AuthService} from "./admin/_service/auth.service";
-import {JwtHelperService} from "@auth0/angular-jwt";
+import {BsDropdownModule} from "ngx-bootstrap/dropdown";
+
 import {ToastrModule} from 'ngx-toastr';
 import {ModalModule} from 'ngx-bootstrap/modal';
+import {PreventUnsavedGuard} from "./guards/prevent-unsaved-guard";
 
 
 
@@ -27,10 +27,12 @@ import {ModalModule} from 'ngx-bootstrap/modal';
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
     ModalModule.forRoot(),
-    HttpClientModule
+    HttpClientModule,
+    BsDropdownModule.forRoot()
   ],
   providers: [
     ErrorInterceptorProvider,
+    PreventUnsavedGuard
     ],
   bootstrap: [AppComponent]
 })
