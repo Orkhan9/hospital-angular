@@ -32,6 +32,8 @@ import { MainMultiCarouselComponent } from './shared/components/main-multi-carou
 import {FormsModule} from '@angular/forms';
 import { MainFileuploadComponent } from './main-fileupload/main-fileupload.component';
 import { ServiceDetailPageComponent } from './service-detail-page/service-detail-page.component';
+import { LoginPageComponent } from './login-page/login-page.component';
+import { RegisterPageComponent } from './register-page/register-page.component';
 
 
 
@@ -64,7 +66,9 @@ import { ServiceDetailPageComponent } from './service-detail-page/service-detail
     MainContactMapComponent,
     MainMultiCarouselComponent,
     MainFileuploadComponent,
-    ServiceDetailPageComponent,],
+    ServiceDetailPageComponent,
+    LoginPageComponent,
+    RegisterPageComponent,],
   imports: [
     CommonModule,
     MainappRoutingModule,

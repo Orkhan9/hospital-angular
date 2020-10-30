@@ -1,5 +1,5 @@
 <div class="container mt-5">
-  <button class="btn btn-primary" [routerLink]="['/admin/doctor/create']">Create Product yox bir Meyve Terevez</button>
+  <button class="btn btn-primary" [routerLink]="['/admin/doctor/create']">Create Doctor</button>
   <div class="row mt-3">
     <div class="col-md-4" *ngFor="let doctor of doctors">
       <app-admin-doctor-item [doctor]="doctor" (onDelete)="onDelete($event)"></app-admin-doctor-item>

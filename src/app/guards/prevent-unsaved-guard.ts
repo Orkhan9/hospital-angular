@@ -5,8 +5,8 @@ import {AdminDoctorUpdateComponent} from "../admin/admin-doctor/admin-doctor-upd
 @Injectable()
 export  class PreventUnsavedGuard implements CanDeactivate<AdminDoctorUpdateComponent> {
   canDeactivate(component: AdminDoctorUpdateComponent) {
-    if (component.form.dirty) {
-      return confirm("are you sure you want to continue,ansaved changes will be lost");
+    if (component.form.dirty && component.form.invalid) {
+      return confirm("are you sure you want to continue,unsaved changes will be lost");
     }
     return true;
   }

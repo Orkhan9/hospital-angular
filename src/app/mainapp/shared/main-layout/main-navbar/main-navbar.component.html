@@ -71,6 +71,16 @@
             </ul>
           </li>
           <li><a [routerLink]="['contact']">Contact Us</a></li>
+          <li><a [routerLink]="['login']" *ngIf="!loggedIn()" >Login</a></li>
+          <li><a [routerLink]="['register']" *ngIf="!loggedIn()">Register</a></li>
+          <li *ngIf="loggedIn()">
+
+              <a > {{authService.decodedToken?.unique_name|titlecase}}</a>
+
+          </li>
+              <li  >
+                <a class="nav-link" (click)="logOut()" *ngIf="loggedIn()">Logout</a>
+              </li>
         </ul>
         <ul class="level-1">
           <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>

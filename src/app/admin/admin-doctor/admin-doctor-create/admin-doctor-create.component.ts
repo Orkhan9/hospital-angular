@@ -5,6 +5,7 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {Department} from '../../../models/department';
 import {Doctor} from '../../../models/doctor';
 import {ToastrService} from 'ngx-toastr';
+import {DepartmentService} from '../../../service/department.service';
 
 @Component({
   selector: 'app-admin-doctor-create',
@@ -14,7 +15,8 @@ import {ToastrService} from 'ngx-toastr';
 export class AdminDoctorCreateComponent implements OnInit {
   form: FormGroup;
   departments:Department[];
-  constructor(private doctorService:DoctorService,private route:Router,private toastr: ToastrService) { }
+  constructor(private doctorService:DoctorService,private route:Router
+              ,private toastr: ToastrService,private departmentService:DepartmentService) { }
 
   ngOnInit(): void {
     this.formCreate();
@@ -31,7 +33,7 @@ export class AdminDoctorCreateComponent implements OnInit {
     });
   }
   getDepartments(){
-    this.doctorService.getAllDepartments()
+    this.departmentService.getAllDepartments()
       .subscribe(departments=>{
         this.departments=departments,
           error=>console.log(error)
@@ -52,7 +54,7 @@ export class AdminDoctorCreateComponent implements OnInit {
         console.log(x);
         this.route.navigate(['/admin/doctor']);
         this.toastr.success('Doctor is created');
-      },error=>this.toastr.error(error.message));
+      },error=>this.toastr.error(error));
     }
   }
 

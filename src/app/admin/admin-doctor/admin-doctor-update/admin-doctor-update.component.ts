@@ -5,6 +5,7 @@ import {Doctor} from '../../../models/doctor';
 import {DoctorService} from '../../../service/doctor.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {ToastrService} from 'ngx-toastr';
+import {DepartmentService} from '../../../service/department.service';
 
 @Component({
   selector: 'app-admin-doctor-update',
@@ -22,7 +23,8 @@ export class AdminDoctorUpdateComponent implements OnInit {
     }
   }
   constructor(private doctorService:DoctorService,private route:Router
-    ,private activatedRoute:ActivatedRoute,private toastr: ToastrService) { }
+    ,private activatedRoute:ActivatedRoute,private toastr: ToastrService
+  ,private departmentService:DepartmentService) { }
 
   ngOnInit(): void {
     this.formUpdate();
@@ -49,7 +51,7 @@ export class AdminDoctorUpdateComponent implements OnInit {
   }
 
   getDepartments(){
-    this.doctorService.getAllDepartments()
+    this.departmentService.getAllDepartments()
       .subscribe(departments=>{
         this.departments=departments,
           error=>console.log(error)
@@ -71,7 +73,8 @@ export class AdminDoctorUpdateComponent implements OnInit {
         console.log(x);
         this.route.navigate(['/admin/doctor']);
         this.toastr.success('Doctor is edited');
-      },error=>this.toastr.error(error.message));
+      },error=>this.toastr.error(error));
+
     }
   }
 
