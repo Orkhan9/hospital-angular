@@ -14,21 +14,23 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-md-6 col-lg-4" *ngFor="let doctor of doctors">
-        <div class="doctor-item">
-          <div class="img-box">
-            <img class="img-fluid" src="assets/images/doctors/01_doctors.jpg" alt="01 Doctor">
-          </div>
-          <div class="text-box text-center">
-            <h5>{{doctor.name}}</h5>
-            <span>{{doctor.profession}}</span>
-            <p>{{doctor.description}}</p>
-            <ul>
-              <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-              <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-              <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-              <li><a href="#"><i class="fab fa-dribbble"></i></a></li>
-            </ul>
+      <div class="col-md-6 col-lg-4" *ngFor="let doctor of doctors;let i=index">
+        <div *ngIf="i<6">
+          <div class="doctor-item">
+            <div class="img-box">
+              <img class="img-fluid" src="assets/images/doctors/01_doctors.jpg" alt="01 Doctor">
+            </div>
+            <div class="text-box text-center">
+              <h5>{{doctor.name}}</h5>
+              <span>{{doctor.profession}}</span>
+              <p>{{doctor.description}}</p>
+              <ul>
+                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                <li><a href="#"><i class="fab fa-dribbble"></i></a></li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>

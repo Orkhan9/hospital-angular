@@ -34,6 +34,7 @@ import { MainFileuploadComponent } from './main-fileupload/main-fileupload.compo
 import { ServiceDetailPageComponent } from './service-detail-page/service-detail-page.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { RegisterPageComponent } from './register-page/register-page.component';
+import { MainHomeCarouselComponent } from './home-page/main-home-carousel/main-home-carousel.component';
 
 
 
@@ -68,7 +69,8 @@ import { RegisterPageComponent } from './register-page/register-page.component';
     MainFileuploadComponent,
     ServiceDetailPageComponent,
     LoginPageComponent,
-    RegisterPageComponent,],
+    RegisterPageComponent,
+    MainHomeCarouselComponent,],
     imports: [
         CommonModule,
         MainappRoutingModule,
