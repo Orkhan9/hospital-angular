@@ -5,5 +5,7 @@ export class Doctor {
   description:string;
   facebook:string;
   department:string;
-  departmentId:number
+  departmentId:number;
+  photoUrl:string;
+  photo:File;
 }

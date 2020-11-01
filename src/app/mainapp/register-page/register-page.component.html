@@ -8,13 +8,22 @@
           <h2 class="text-center text-primary"> Sign up</h2>
           <hr>
           <div class="form-group">
-            <input type="text" class="form-control" required placeholder="username" type="text"
+            <input type="text" class="form-control" required placeholder="username"
                    name="username" [(ngModel)]="model.username">
           </div>
           <div class="form-group">
             <input type="password" class="form-control" required placeholder="password" type="password"
                    name="password" [(ngModel)]="model.password">
           </div>
+<!--          <div class="form-group d-none">-->
+
+<!--            <label>Role</label>-->
+<!--            <select name="role" class="form-control">-->
+<!--              <option value="" disabled>Select Role</option>-->
+<!--              <option value="2" *ngFor="let role of roles">User</option>-->
+<!--            </select>-->
+
+<!--          </div>-->
           <div class="form-group">
             <button type="submit" class="btn btn-success mr-2" [disabled]="!registerForm.valid">Register</button>
             <button class="btn btn-success" (click)="cancel()">Cancel</button>

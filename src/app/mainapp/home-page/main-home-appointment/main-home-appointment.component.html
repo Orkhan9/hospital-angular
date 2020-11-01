@@ -10,41 +10,73 @@
             <h3>An Appointment</h3>
             <p>Al-Anwar are a professional medical &amp; health care services provider institutions. Suitable for Hospitals, Dentists, Gynecologists, Physiatrists.</p>
           </div>
-          <form>
+
+          <form  [formGroup]="form" (ngSubmit)="onSubmit()">
             <div class="row">
+
               <div class="col-md-6 form-item">
-                <input type="text" name="name" placeholder="Name">
+                <input formControlName="name" type="text" name="name" placeholder="Name">
+                <div class="validation alert alert-danger" *ngIf="_name.invalid && _name.touched">
+                  <div *ngIf="_name.errors?.required">
+                    Name required
+                  </div>
+                </div>
               </div>
+
               <div class="col-md-6 form-item">
-                <input type="email" name="email" placeholder="Email">
+                <input formControlName="email" type="email" name="email" placeholder="Email">
+                <div class="validation alert alert-danger" *ngIf="_email.invalid && _email.touched">
+                  <div *ngIf="_email.errors?.required">
+                    Email required
+                  </div>
+                </div>
               </div>
+
               <div class="col-md-6 form-item">
-                <input type="tel" name="tel" placeholder="Phone">
+                <input formControlName="phone" type="tel" name="tel" placeholder="Phone">
+                <div class="validation alert alert-danger" *ngIf="_phone.invalid && _phone.touched">
+                  <div *ngIf="_phone.errors?.required">
+                    Phone required
+                  </div>
+                </div>
               </div>
+
               <div class="col-md-6 form-item">
-                <select>
-                  <option data-display="Select">Department</option>
-                  <option value="1">Neurology</option>
-                  <option value="2">Orthopedic</option>
-                  <option value="3">Lab Test</option>
-                  <option value="4">Dental</option>
-                  <option value="5">Cardiology</option>
-                  <option value="6">Gynecology</option>
-                  <option value="7">Pulmonology</option>
-                  <option value="8">Eye</option>
+                <select  (change)="getDoctorsByDepartment($event)" class="form-control" >
+                  <option value="" disabled>Select Department</option>
+                  <option  value="{{department.id}}" *ngFor="let department of departments">{{department.name}}</option>
                 </select>
               </div>
+
               <div class="col-md-6 form-item">
-                <input type="text" name="name" placeholder="Doctor Name">
+                <select formControlName="doctorId" class="form-control">
+                  <option value="" disabled>Select Doctor</option>
+                  <option value="{{doctor.id}}" *ngFor="let doctor of doctors">{{doctor.name}}</option>
+                </select>
+                <div class="validation alert alert-danger" *ngIf="_doctor.invalid && _doctor.touched">
+                  <div *ngIf="_doctor.errors?.required">
+                    Doctor required
+                  </div>
+                </div>
               </div>
               <div class="col-md-6 form-item">
-                <input placeholder="MM/DD/YYYY" data-provide="datepicker">
+                <input type="date" formControlName="date" placeholder="MM/DD/YYYY">
+                <div class="validation alert alert-danger" *ngIf="_date.invalid && _date.touched">
+                  <div *ngIf="_date.errors?.required">
+                    Department required
+                  </div>
+                </div>
               </div>
               <div class="col-md-12 form-item">
-                <textarea placeholder="Leave Your Message Here....."></textarea>
+                <textarea formControlName="message" placeholder="Leave Your Message Here....."></textarea>
+                <div class="validation alert alert-danger" *ngIf="_message.invalid && _message.touched">
+                  <div *ngIf="_message.errors?.required">
+                    Message required
+                  </div>
+                </div>
               </div>
               <div class="col-md-12 form-item">
-                <a href="#" class="btn-1">Submit Request</a>
+                <button type="submit" [disabled]="form.invalid" class="btn btn-primary btn-submit">Submit</button>
               </div>
             </div>
           </form>

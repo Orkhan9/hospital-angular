@@ -29,7 +29,7 @@ import { MainContactMapComponent } from './contact-page/main-contact-map/main-co
 import {BreadcrumbModule} from 'xng-breadcrumb';
 import {CarouselModule} from "ngx-bootstrap/carousel";
 import { MainMultiCarouselComponent } from './shared/components/main-multi-carousel/main-multi-carousel.component';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { MainFileuploadComponent } from './main-fileupload/main-fileupload.component';
 import { ServiceDetailPageComponent } from './service-detail-page/service-detail-page.component';
 import { LoginPageComponent } from './login-page/login-page.component';
@@ -69,13 +69,14 @@ import { RegisterPageComponent } from './register-page/register-page.component';
     ServiceDetailPageComponent,
     LoginPageComponent,
     RegisterPageComponent,],
-  imports: [
-    CommonModule,
-    MainappRoutingModule,
-    BreadcrumbModule,
-    CarouselModule.forRoot(),
-    FormsModule
-  ],
+    imports: [
+        CommonModule,
+        MainappRoutingModule,
+        BreadcrumbModule,
+        CarouselModule.forRoot(),
+        FormsModule,
+        ReactiveFormsModule
+    ],
   exports:[]
 })
 export class MainappModule { }

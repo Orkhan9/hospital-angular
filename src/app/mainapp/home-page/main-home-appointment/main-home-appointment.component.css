@@ -25,3 +25,32 @@
 .appointment-item .sec-title p{
   font-size: 14px;
 }
+
+
+input.ng-invalid.ng-touched{
+  border: 3px solid red;
+}
+
+input.ng-valid{
+  border: 3px solid green;
+}
+
+textarea.ng-invalid.ng-touched{
+  border: 3px solid red;
+}
+
+textarea.ng-valid{
+  border: 3px solid green;
+}
+
+select.ng-invalid.ng-touched{
+  border: 3px solid red;
+}
+
+select.ng-valid{
+  border: 3px solid green;
+}
+
+.btn-submit:disabled{
+  cursor: not-allowed;
+}

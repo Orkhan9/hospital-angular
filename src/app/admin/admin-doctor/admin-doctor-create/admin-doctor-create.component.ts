@@ -6,6 +6,7 @@ import {Department} from '../../../models/department';
 import {Doctor} from '../../../models/doctor';
 import {ToastrService} from 'ngx-toastr';
 import {DepartmentService} from '../../../service/department.service';
+import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-admin-doctor-create',
@@ -15,12 +16,14 @@ import {DepartmentService} from '../../../service/department.service';
 export class AdminDoctorCreateComponent implements OnInit {
   form: FormGroup;
   departments:Department[];
+  file:File;
   constructor(private doctorService:DoctorService,private route:Router
-              ,private toastr: ToastrService,private departmentService:DepartmentService) { }
+              ,private toastr: ToastrService,private departmentService:DepartmentService,private http:HttpClient) { }
 
   ngOnInit(): void {
     this.formCreate();
     this.getDepartments();
+
   }
 
   formCreate(){
@@ -32,6 +35,8 @@ export class AdminDoctorCreateComponent implements OnInit {
       departmentId:new FormControl('',[Validators.required])
     });
   }
+
+
   getDepartments(){
     this.departmentService.getAllDepartments()
       .subscribe(departments=>{
@@ -40,16 +45,24 @@ export class AdminDoctorCreateComponent implements OnInit {
       })
   }
 
+  selectFile(event) {
+  if(event.target.files.length>0){
+  this.file=event.target.files
+  //this.http.post("https://localhost:5001/api/fileupload",this.file).subscribe(x=>console.log(x))
+}
+  }
+
   onSubmit() {
     if(this.form.valid){
 
       let doctor=new Doctor();
       doctor.name=this.form.value.name;
       doctor.profession=this.form.value.profession;
-      doctor.description=this.form.value.facebook;
-      doctor.facebook=this.form.value.name;
+      doctor.description=this.form.value.description;
+      doctor.facebook=this.form.value.facebook;
+      doctor.photo=this.file;
       doctor.departmentId=+this.form.value.departmentId;
-
+      console.log(doctor.photo);
       this.doctorService.createDoctor(doctor).subscribe(x=> {
         console.log(x);
         this.route.navigate(['/admin/doctor']);
@@ -76,6 +89,10 @@ export class AdminDoctorCreateComponent implements OnInit {
 
   get _departmentId(){
     return this.form.get('departmentId');
+  }
+
+  get _photoUrl(){
+    return this.form.get('photoUrl');
   }
 
 

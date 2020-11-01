@@ -20,7 +20,9 @@ export class LoginPageComponent implements OnInit {
     this.authService.login(this.model).subscribe(next=>{
       // console.log("login succsesfuly")
       this.alertify.success("login successfuly");
-      this.route.navigate([''])
+      const token=localStorage.getItem("token")
+
+      //this.route.navigate([''])
     },error => {
       //console.log("login failed"+error)
       this.alertify.error(error)
@@ -35,7 +37,7 @@ export class LoginPageComponent implements OnInit {
   logOut(){
     localStorage.removeItem("token");
     // console.log("logged out");
-    this.alertify.message("logged out")
+    this.alertify.message("logged out");
   }
 
 }

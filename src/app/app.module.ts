@@ -7,7 +7,6 @@ import {NgxSpinnerModule} from 'ngx-spinner';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {ErrorInterceptorProvider} from "./service/error.interceptor";
 import {BsDropdownModule} from "ngx-bootstrap/dropdown";
-
 import {ToastrModule} from 'ngx-toastr';
 import {ModalModule} from 'ngx-bootstrap/modal';
 import {PreventUnsavedGuard} from "./guards/prevent-unsaved-guard";

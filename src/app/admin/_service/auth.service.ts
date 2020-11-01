@@ -3,6 +3,7 @@ import {HttpClient} from "@angular/common/http";
 import {environment} from "../../../environments/environment";
 import {map} from "rxjs/operators";
 import {JwtHelperService} from "@auth0/angular-jwt";
+import {Router} from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ import {JwtHelperService} from "@auth0/angular-jwt";
 export class AuthService {
  jwtHelper=new JwtHelperService();
  decodedToken:any;
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient,private route:Router) { }
   login(model:any){
    return this.http.post(environment.baseAuthUrl+"/login",model)
       .pipe(
@@ -19,7 +20,15 @@ export class AuthService {
           if(user){
             localStorage.setItem("token",user.token)
             this.decodedToken=this.jwtHelper.decodeToken(user.token);
-            console.log(this.decodedToken)
+
+            if (this.decodedToken.role=="admin"){
+              this.route.navigate(['admin'])
+            }else{
+              this.route.navigate([''])
+            }
+
+
+
           }
         })
       )
