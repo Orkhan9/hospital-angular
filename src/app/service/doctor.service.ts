@@ -24,10 +24,6 @@ export class DoctorService {
     return this.http.get<Doctor[]>(environment.baseUrl+"doctor/GetDoctorByDepartment/"+id)
   }
 
-  getAllDepartments(){
-    return this.http.get<Department[]>(environment.baseUrl + 'department')
-  }
-
   // getAllDepartments():Observable<Department[]>{
   //   return  this.http.get<Department[]>(environment.baseUrl+'department')
   // }

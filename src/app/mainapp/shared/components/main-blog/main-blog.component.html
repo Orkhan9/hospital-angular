@@ -14,68 +14,22 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-md-6 col-lg-4">
+      <div class="col-md-6 col-lg-4" *ngFor="let blog of blogs">
         <div class="blog-item">
           <div class="img-box">
             <a href="01_blog.html" class="open-post">
               <img class="img-fluid" src="assets/images/blog/01_blog.jpg" alt="01 Blog">
             </a>
             <ul>
-              <li><a href="#">COVID -19</a></li>
-              <li><a href="#">,</a></li>
-              <li><a href="#">Tips</a></li>
+              <li><a href="#">{{blog.topic}}</a></li>
             </ul>
           </div>
           <div class="text-box">
-            <span class="blog-date">Jan 20, 2019</span>
+            <span class="blog-date">{{blog.publishTime}}</span>
             <a href="01_blog.html" class="title-blog">
-              <h5>Medical &amp; Dental Support ICU &amp; CCU for Emergancy Services</h5>
+              <h5>{{blog.title}}</h5>
             </a>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusm tempor incididunt ut labore et dolore magna aliqua...</p>
-            <a href="01_blog.html" class="link">Read More</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4">
-        <div class="blog-item">
-          <div class="img-box">
-            <a href="01_blog.html" class="open-post">
-              <img class="img-fluid" src="assets/images/blog/02_blog.jpg" alt="02 Blog">
-            </a>
-            <ul>
-              <li><a href="#">Treatment</a></li>
-              <li><a href="#">,</a></li>
-              <li><a href="#">Tips</a></li>
-            </ul>
-          </div>
-          <div class="text-box">
-            <span class="blog-date">Jan 25, 2019</span>
-            <a href="01_blog.html" class="title-blog">
-              <h5>Patien Forum School patient Experience</h5>
-            </a>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusm tempor incididunt ut labore et dolore magna aliqua...</p>
-            <a href="01_blog.html" class="link">Read More</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4">
-        <div class="blog-item">
-          <div class="img-box">
-            <a href="01_blog.html" class="open-post">
-              <img class="img-fluid" src="assets/images/blog/03_blog.jpg" alt="03 Blog">
-            </a>
-            <ul>
-              <li><a href="#">Medical</a></li>
-              <li><a href="#">,</a></li>
-              <li><a href="#">Tips</a></li>
-            </ul>
-          </div>
-          <div class="text-box">
-            <span class="blog-date">Jan 30, 2019</span>
-            <a href="01_blog.html" class="title-blog">
-              <h5>What Can I do to protect myself &amp; prevent the spread of disease!</h5>
-            </a>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusm tempor incididunt ut labore et dolore magna aliqua...</p>
+            <p>{{blog.description}}</p>
             <a href="01_blog.html" class="link">Read More</a>
           </div>
         </div>

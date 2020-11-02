@@ -42,7 +42,7 @@
               </div>
 
               <div class="col-md-6 form-item">
-                <select  (change)="getDoctorsByDepartment($event)" class="form-control" >
+                <select (change)="getDoctorsByDepartment($event)" class="form-control" >
                   <option value="" disabled>Select Department</option>
                   <option  value="{{department.id}}" *ngFor="let department of departments">{{department.name}}</option>
                 </select>

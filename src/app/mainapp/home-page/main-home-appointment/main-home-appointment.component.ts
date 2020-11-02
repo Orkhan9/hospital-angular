@@ -67,20 +67,13 @@ export class MainHomeAppointmentComponent implements OnInit {
   }
 
   getDoctorsByDepartment(event) {
-
+    console.log(event.target.value);
     this.doctorService.getDoctorByDepartment(event.target.value)
       .subscribe(doctors=> {
         this.doctors =doctors
       });
   }
 
-  // getAllDoctors(){
-  //   this.doctorService.getAllDoctors()
-  //     .subscribe(doctors=>{
-  //       this.doctors=doctors,
-  //         error=>console.log(error)
-  //     })
-  // }
 
   get _name(){
     return this.form.get('name');
