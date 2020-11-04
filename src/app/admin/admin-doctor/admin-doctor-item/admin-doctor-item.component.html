@@ -1,29 +1,68 @@
-<div class="card mb-4 box-shadow">
-  <img class="card-img-top" src="https://localhost:5001/images/i1.jpeg" data-holder-rendered="true">
-  <div class="card-body">
-    <h4>Name: {{doctor.name}}</h4>
-    <h5>Profession: {{doctor.profession}}</h5>
-    <h5>Facebook: {{doctor.facebook}}</h5>
-    <h5 class="card-text">Department: {{doctor.department}}</h5>
-    <p>Description: {{doctor.description}}</p>
-    <div class="d-flex justify-content-between align-items-center">
-      <div class="btn-group">
-        <button type="button" class="btn btn-sm btn-outline-success" [routerLink]="['/admin/doctor/',doctor.id]">View</button>
-        <button type="button" class="btn btn-sm btn-outline-warning" [routerLink]="['/admin/doctor/update/',doctor.id]">Edit</button>
-        <button type="button" class="btn btn-sm btn-outline-danger" (click)="openModal(template)">Delete</button>
-        <ng-template #template>
-          <div class="modal-header">
-            <h4 class="modal-title pull-left">Modal</h4>
-            <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <h4>Are you sure delete {{doctor.name}}?</h4>
-            <button class="btn btn-danger mt-3" (click)="deleteDoctor(doctor);modalRef.hide()">Delete</button>
-          </div>
-        </ng-template>
-      </div>
+<td>{{doctor.name}}</td>
+<td>{{doctor.profession}}</td>
+<td>{{doctor.facebook}}</td>
+<td>{{doctor.department}}</td>
+<td>
+  <div class="d-flex justify-content-between align-items-center">
+    <div class="btn-group">
+      <button type="button" class="btn btn-sm btn-outline-success" [routerLink]="['/admin/doctor/',doctor.id]">View</button>
+      <button type="button" class="btn btn-sm btn-outline-warning" [routerLink]="['/admin/doctor/update/',doctor.id]">Edit</button>
+      <button type="button" class="btn btn-sm btn-outline-danger" (click)="openModal(template)">Delete</button>
+      <ng-template #template>
+        <div class="modal-header">
+          <h4 class="modal-title pull-left">Are you sure delete?</h4>
+          <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <h2>{{doctor.name}}</h2>
+          <button class="btn btn-danger mt-3" (click)="deleteDoctor(doctor);modalRef.hide()">Delete</button>
+        </div>
+      </ng-template>
     </div>
   </div>
-</div>
+</td>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--<div class="card mb-4 box-shadow">-->
+<!--  <img class="card-img-top" src="https://localhost:5001/images/i1.jpeg" data-holder-rendered="true">-->
+<!--  <div class="card-body">-->
+<!--    <h4>Name: {{doctor.name}}</h4>-->
+<!--    <h5>Profession: {{doctor.profession}}</h5>-->
+<!--    <h5>Facebook: {{doctor.facebook}}</h5>-->
+<!--    <h5 class="card-text">Department: {{doctor.department}}</h5>-->
+<!--    <p>Description: {{doctor.description}}</p>-->
+<!--    <div class="d-flex justify-content-between align-items-center">-->
+<!--      <div class="btn-group">-->
+<!--        <button type="button" class="btn btn-sm btn-outline-success" [routerLink]="['/admin/doctor/',doctor.id]">View</button>-->
+<!--        <button type="button" class="btn btn-sm btn-outline-warning" [routerLink]="['/admin/doctor/update/',doctor.id]">Edit</button>-->
+<!--        <button type="button" class="btn btn-sm btn-outline-danger" (click)="openModal(template)">Delete</button>-->
+<!--        <ng-template #template>-->
+<!--          <div class="modal-header">-->
+<!--            <h4 class="modal-title pull-left">Modal</h4>-->
+<!--            <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">-->
+<!--              <span aria-hidden="true">&times;</span>-->
+<!--            </button>-->
+<!--          </div>-->
+<!--          <div class="modal-body">-->
+<!--            <h4>Are you sure delete {{doctor.name}}?</h4>-->
+<!--            <button class="btn btn-danger mt-3" (click)="deleteDoctor(doctor);modalRef.hide()">Delete</button>-->
+<!--          </div>-->
+<!--        </ng-template>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->

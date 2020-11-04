@@ -18,7 +18,8 @@ export class AdminDoctorCreateComponent implements OnInit {
   departments:Department[];
   file:File;
   constructor(private doctorService:DoctorService,private route:Router
-              ,private toastr: ToastrService,private departmentService:DepartmentService,private http:HttpClient) { }
+              ,private toastr: ToastrService,private departmentService:DepartmentService
+              ,private http:HttpClient) { }
 
   ngOnInit(): void {
     this.formCreate();

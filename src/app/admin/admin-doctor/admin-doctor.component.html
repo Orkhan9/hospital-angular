@@ -1,8 +1,34 @@
-<div class="container mt-5">
-  <button class="btn btn-primary" [routerLink]="['/admin/doctor/create']">Create Doctor</button>
-  <div class="row mt-3">
-    <div class="col-md-4" *ngFor="let doctor of doctors">
-      <app-admin-doctor-item [doctor]="doctor" (onDelete)="onDelete($event)"></app-admin-doctor-item>
+<div class="container-fluid">
+
+  <h1 class="h3 mb-3 text-gray-800">Doctors List</h1>
+  <button class="btn btn-primary mb-3" [routerLink]="['/admin/doctor/create']">Create Doctor</button>
+
+  <div class="card shadow">
+    <div class="card-header py-3">
+      <table class="table table-bordered" width="100%" cellspacing="0">
+        <thead>
+        <tr>
+          <th>Name</th>
+          <th>Profession</th>
+          <th>Facebook</th>
+          <th>Department</th>
+          <th>Settings</th>
+        </tr>
+        </thead>
+      </table>
+
+    </div>
+    <div class="card-body">
+      <div class="table-responsive">
+        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+          <tbody>
+          <tr *ngFor="let doctor of doctors">
+              <app-admin-doctor-item [doctor]="doctor" (onDelete)="onDelete($event)"></app-admin-doctor-item>
+          </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
+
 </div>

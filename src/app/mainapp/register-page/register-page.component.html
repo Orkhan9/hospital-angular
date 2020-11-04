@@ -1,20 +1,101 @@
 
-
+<div class="lorem">
   <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-4">
 
-        <form #registerForm="ngForm" (ngSubmit)="register()">
-          <h2 class="text-center text-primary"> Sign up</h2>
-          <hr>
-          <div class="form-group">
-            <input type="text" class="form-control" required placeholder="username"
-                   name="username" [(ngModel)]="model.username">
+    <div class="card o-hidden border-0 shadow-lg my-5">
+      <div class="card-body p-0">
+        <!-- Nested Row within Card Body -->
+        <div class="row">
+          <div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
+          <div class="col-lg-7">
+            <div class="p-5">
+              <div class="text-center">
+                <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
+              </div>
+              <form class="user" [formGroup]="form" (ngSubmit)="onSubmit()">
+                <div class="form-group row">
+
+                  <div class="col-sm-6 mb-3 mb-sm-0" >
+                    <input type="text" formControlName="username" class="form-control form-control-user"
+                           placeholder="Username">
+                    <div class="validation alert alert-danger" *ngIf="_username.invalid && _username.touched">
+                      <div *ngIf="_username.errors?.required">
+                        Username required
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-sm-6">
+                    <input type="email" formControlName="email" class="form-control form-control-user"
+                           placeholder="Email">
+                    <div class="validation alert alert-danger" *ngIf="_email.invalid && _email.touched">
+                      <div *ngIf="_email.errors?.required" >
+                        Email required
+                      </div>
+                      <div *ngIf="_email.errors?.email">
+                        It is not email type
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group row">
+                  <div class="col-sm-6 mb-3 mb-sm-0">
+                    <input type="password" formControlName="password" class="form-control form-control-user"
+                           placeholder="Password">
+                    <div class="validation alert alert-danger" *ngIf="_password.invalid && _password.touched">
+                      <div *ngIf="_password.errors?.required">
+                        Password required
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-sm-6">
+                    <input type="password" formControlName="checkpassword" class="form-control form-control-user"
+                           placeholder="Repeat Password">
+                    <div class="validation alert alert-danger" *ngIf="_checkpassword.invalid && _checkpassword.touched">
+                      <div *ngIf="_checkpassword.errors?.required">
+                        Checkpassword required
+                      </div>
+                      <div *ngIf="form.hasError('isMatching')">
+                        dont,cvv required
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+                <button type="submit" [disabled]="form.invalid" class="btn btn-google btn-user btn-block">Register</button>
+              </form>
+              <hr>
+              <div class="text-center">
+                <a class="small" [routerLink]="['../login']">Already have an account? Login!</a>
+              </div>
+            </div>
           </div>
-          <div class="form-group">
-            <input type="password" class="form-control" required placeholder="password" type="password"
-                   name="password" [(ngModel)]="model.password">
-          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!--  <div class="container">-->
+<!--    <div class="row justify-content-center">-->
+<!--      <div class="col-4">-->
+
+<!--        <form #registerForm="ngForm" (ngSubmit)="register()">-->
+<!--          <h2 class="text-center text-primary"> Sign up</h2>-->
+<!--          <hr>-->
+<!--          <div class="form-group">-->
+<!--            <input type="text" class="form-control" required placeholder="username"-->
+<!--                   name="username" [(ngModel)]="model.username">-->
+<!--          </div>-->
+<!--          <div class="form-group">-->
+<!--            <input type="password" class="form-control" required placeholder="password" type="password"-->
+<!--                   name="password" [(ngModel)]="model.password">-->
+<!--          </div>-->
 <!--          <div class="form-group d-none">-->
 
 <!--            <label>Role</label>-->
@@ -24,12 +105,12 @@
 <!--            </select>-->
 
 <!--          </div>-->
-          <div class="form-group">
-            <button type="submit" class="btn btn-success mr-2" [disabled]="!registerForm.valid">Register</button>
-            <button class="btn btn-success" (click)="cancel()">Cancel</button>
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
+<!--          <div class="form-group">-->
+<!--            <button type="submit" class="btn btn-success mr-2" [disabled]="!registerForm.valid">Register</button>-->
+<!--            <button class="btn btn-success" (click)="cancel()">Cancel</button>-->
+<!--          </div>-->
+<!--        </form>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
 

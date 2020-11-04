@@ -35,6 +35,7 @@ import { ServiceDetailPageComponent } from './service-detail-page/service-detail
 import { LoginPageComponent } from './login-page/login-page.component';
 import { RegisterPageComponent } from './register-page/register-page.component';
 import { MainHomeCarouselComponent } from './home-page/main-home-carousel/main-home-carousel.component';
+import { Error404PageComponent } from './error404-page/error404-page.component';
 
 
 
@@ -70,7 +71,8 @@ import { MainHomeCarouselComponent } from './home-page/main-home-carousel/main-h
     ServiceDetailPageComponent,
     LoginPageComponent,
     RegisterPageComponent,
-    MainHomeCarouselComponent,],
+    MainHomeCarouselComponent,
+    Error404PageComponent,],
     imports: [
         CommonModule,
         MainappRoutingModule,
