@@ -6,7 +6,9 @@ import {AdminLayoutComponent} from './shared/components/admin-layout/admin-layou
 const route:Routes=[
   {path:'',component:AdminLayoutComponent,children:[
       {path:'doctor',loadChildren:()=>import('../admin/admin-doctor/admin-doctor.module').then(m=>m.AdminDoctorModule)},
-      {path:'department',loadChildren:()=>import('../admin/admin-department/admin-department.module').then(m=>m.AdminDepartmentModule)}
+      {path:'department',loadChildren:()=>import('../admin/admin-department/admin-department.module').then(m=>m.AdminDepartmentModule)},
+      {path:'service',loadChildren:()=>import('../admin/admin-service/admin-service.module').then(m=>m.AdminServiceModule)}
+
       ]}
 ]
 

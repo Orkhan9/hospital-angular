@@ -3,7 +3,6 @@ import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {environment} from '../../environments/environment';
 import {Department} from '../models/department';
-import {Doctor} from '../models/doctor';
 
 @Injectable({
   providedIn: 'root'
@@ -24,7 +23,7 @@ export class DepartmentService {
     return this.http.post(environment.baseUrl + 'department',department);
   }
 
-  editDepartment(department:Doctor){
+  editDepartment(department:Department){
     return this.http.put(environment.baseUrl + 'department/' + department.id,department);
 
   }

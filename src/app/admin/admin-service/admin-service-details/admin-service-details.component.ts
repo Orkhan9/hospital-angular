@@ -1,0 +1,30 @@
+import { Component, OnInit } from '@angular/core';
+import {DoctorService} from '../../../service/doctor.service';
+import {ActivatedRoute} from '@angular/router';
+import {Doctor} from '../../../models/doctor';
+import {ServiceService} from '../../../service/service.service';
+import {Service} from '../../../models/service';
+
+@Component({
+  selector: 'app-admin-service-details',
+  templateUrl: './admin-service-details.component.html',
+  styleUrls: ['./admin-service-details.component.css']
+})
+export class AdminServiceDetailsComponent implements OnInit {
+
+  constructor(private serviceService:ServiceService,private activatedRoute:ActivatedRoute) { }
+  service:Service;
+  ngOnInit(): void {
+    this.getDoctorbyId();
+  }
+
+  getDoctorbyId(){
+    this.serviceService.getServiceById(+this.activatedRoute.snapshot.params.id)
+      .subscribe(service=>{
+        this.service=service,
+          error=>console.log(error)
+      })
+  }OnInit(): void {
+  }
+
+}

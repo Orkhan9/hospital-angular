@@ -3,6 +3,7 @@
     <div class="col">
       <form [formGroup]="form" (ngSubmit)="onSubmit()">
 
+
         <div class="form-group">
           <label>Name</label>
           <input type="text" formControlName="name" class="form-control" placeholder="name">
@@ -15,10 +16,22 @@
 
         <div class="form-group">
           <label>Description</label>
-          <input type="text" formControlName="description" class="form-control" placeholder="description">
+          <textarea type="text" formControlName="description" class="form-control"
+                    placeholder="description" rows="8"></textarea>
           <div class="validation alert alert-danger" *ngIf="_description.invalid && _description.touched">
             <div *ngIf="_description.errors?.required">
               Description required
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>ShortDesc</label>
+          <textarea type="text" formControlName="shortDesc" class="form-control"
+                    placeholder="shortDesc" rows="3"></textarea>
+          <div class="validation alert alert-danger" *ngIf="_shortDesc.invalid && _shortDesc.touched">
+            <div *ngIf="_shortDesc.errors?.required">
+              ShortDesc required
             </div>
           </div>
         </div>

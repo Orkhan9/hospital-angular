@@ -24,7 +24,7 @@ export class AdminDoctorUpdateComponent implements OnInit {
   }
   constructor(private doctorService:DoctorService,private route:Router
     ,private activatedRoute:ActivatedRoute,private toastr: ToastrService
-  ,private departmentService:DepartmentService) { }
+    ,private departmentService:DepartmentService) { }
 
   ngOnInit(): void {
     this.formUpdate();

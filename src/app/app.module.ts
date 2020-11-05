@@ -9,7 +9,7 @@ import {ErrorInterceptorProvider} from "./service/error.interceptor";
 import {BsDropdownModule} from "ngx-bootstrap/dropdown";
 import {ToastrModule} from 'ngx-toastr';
 import {ModalModule} from 'ngx-bootstrap/modal';
-import {PreventUnsavedGuard} from "./guards/prevent-unsaved-guard";
+import {PreventUnsavedGuardDepartment, PreventUnsavedGuardDoctor, PreventUnsavedGuardService} from './guards/prevent-unsaved-guard';
 
 
 
@@ -31,7 +31,9 @@ import {PreventUnsavedGuard} from "./guards/prevent-unsaved-guard";
   ],
   providers: [
     ErrorInterceptorProvider,
-    PreventUnsavedGuard
+    PreventUnsavedGuardDepartment,
+    PreventUnsavedGuardDoctor,
+    PreventUnsavedGuardService
     ],
   bootstrap: [AppComponent]
 })
