@@ -73,14 +73,17 @@
           <li><a [routerLink]="['contact']" style="cursor: pointer">Contact Us</a></li>
           <li><a [routerLink]="['login']" *ngIf="!loggedIn()" style="cursor: pointer">Login</a></li>
           <li><a [routerLink]="['register']" *ngIf="!loggedIn()" style="cursor: pointer">Register</a></li>
-          <li *ngIf="loggedIn()">
-
-              <a > {{authService.decodedToken?.unique_name|titlecase}}</a>
-
+          <li *ngIf="authService.decodedToken?.role=='admin' && loggedIn()">
+            <a [routerLink]="['admin']"
+               style="cursor: pointer">Admin</a>
           </li>
-              <li  >
-                <a class="nav-link" (click)="logOut()" *ngIf="loggedIn()" style="cursor: pointer">Logout</a>
-              </li>
+          <li *ngIf="loggedIn()">
+            <a > {{authService.decodedToken?.unique_name|titlecase}}</a>
+          </li>
+
+          <li>
+            <a class="nav-link" (click)="logOut()" *ngIf="loggedIn()" style="cursor: pointer">Logout</a>
+          </li>
         </ul>
         <ul class="level-1">
           <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>

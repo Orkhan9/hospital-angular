@@ -3,6 +3,7 @@ import {CanDeactivate} from "@angular/router";
 import {AdminDepartmentUpdateComponent} from '../admin/admin-department/admin-department-update/admin-department-update.component';
 import {AdminDoctorUpdateComponent} from '../admin/admin-doctor/admin-doctor-update/admin-doctor-update.component';
 import {AdminServiceUpdateComponent} from '../admin/admin-service/admin-service-update/admin-service-update.component';
+import {AdminBlogUpdateComponent} from '../admin/admin-blog/admin-blog-update/admin-blog-update.component';
 
 @Injectable()
 export  class PreventUnsavedGuardDepartment implements CanDeactivate<AdminDepartmentUpdateComponent> {
@@ -35,5 +36,13 @@ export  class PreventUnsavedGuardService implements CanDeactivate<AdminServiceUp
 
 }
 
-
+// export  class PreventUnsavedGuardBlog implements CanDeactivate<AdminBlogUpdateComponent> {
+//   canDeactivate(component: AdminBlogUpdateComponent) {
+//     if (component.form.dirty && component.form.invalid) {
+//       return confirm("are you sure you want to continue,unsaved changes will be lost");
+//     }
+//     return true;
+//   }
+//
+// }
 

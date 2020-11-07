@@ -16,7 +16,7 @@ import {HttpClient} from '@angular/common/http';
 export class AdminDoctorCreateComponent implements OnInit {
   form: FormGroup;
   departments:Department[];
-  file:File;
+  photo:string;
   constructor(private doctorService:DoctorService,private route:Router
               ,private toastr: ToastrService,private departmentService:DepartmentService
               ,private http:HttpClient) { }
@@ -47,9 +47,13 @@ export class AdminDoctorCreateComponent implements OnInit {
   }
 
   selectFile(event) {
-  if(event.target.files.length>0){
-  this.file=event.target.files
-  //this.http.post("https://localhost:5001/api/fileupload",this.file).subscribe(x=>console.log(x))
+  if(event.target.files[0]){
+    let reader=new FileReader();
+    let file=event.target.files[0];
+    reader.readAsDataURL(file);
+    reader.onload=()=>{
+      this.photo=(<string>reader.result).split(',')[1];
+    }
 }
   }
 
@@ -61,9 +65,9 @@ export class AdminDoctorCreateComponent implements OnInit {
       doctor.profession=this.form.value.profession;
       doctor.description=this.form.value.description;
       doctor.facebook=this.form.value.facebook;
-      doctor.photo=this.file;
+      doctor.photoUrl=this.photo;
       doctor.departmentId=+this.form.value.departmentId;
-      console.log(doctor.photo);
+      //console.log(doctor.photo);
       this.doctorService.createDoctor(doctor).subscribe(x=> {
         console.log(x);
         this.route.navigate(['/admin/doctor']);

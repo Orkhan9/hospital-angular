@@ -38,6 +38,7 @@ export class RegisterPageComponent implements OnInit {
   }
 
   onSubmit() {
+    console.log(this.form);
     if(this.form.valid){
       let registeruser= {
         username:this.form.value.username,
@@ -54,6 +55,7 @@ export class RegisterPageComponent implements OnInit {
       },error=>this.alertify.error(error));
     }
   }
+
 matchValues(match:string):ValidatorFn{
     return (control:AbstractControl)=>{
       return control?.value===control?.parent?.controls[match].value

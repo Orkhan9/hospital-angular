@@ -16,9 +16,10 @@ departments:Department[];
   }
 
   getAllDepartments(){
-    this.departmentService.getAllDepartments().subscribe(departments=>{
-      this.departments=departments
-      // console.log(this.doctorService);
+    this.departmentService.getAllDepartments()
+      .subscribe(departments=>{
+        this.departments=departments,
+        error=>console.log(error);
     })
   }
 }

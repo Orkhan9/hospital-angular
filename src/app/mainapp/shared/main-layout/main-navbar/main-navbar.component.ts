@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthService} from '../../../../service/auth.service';
 import {AlertifyService} from '../../../../service/alertify.service';
+import {JwtHelperService} from '@auth0/angular-jwt';
 
 @Component({
   selector: 'app-main-navbar',
@@ -9,17 +10,22 @@ import {AlertifyService} from '../../../../service/alertify.service';
 })
 export class MainNavbarComponent implements OnInit {
 
-  constructor(private authService:AuthService,private alertify:AlertifyService) { }
+  helper=new JwtHelperService();
+  constructor(public authService:AuthService,private alertify:AlertifyService) { }
 
-  ngOnInit(): void {
-  }loggedIn(){
+  ngOnInit(): void {  }
+
+  loggedIn(){
     // const token=localStorage.getItem("token");
     // return !!token;
+
     return this.authService.loggedIn()
   }
+
   logOut(){
     localStorage.removeItem("token");
     // console.log("logged out");
-    this.alertify.message("logged out")
+    this.alertify.warning("logged out")
   }
+
 }

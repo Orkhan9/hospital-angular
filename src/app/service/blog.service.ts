@@ -11,7 +11,24 @@ export class BlogService {
 
   constructor(private http:HttpClient) { }
 
-  getAllDepartments():Observable<Blog[]>{
+  getAllBlogs():Observable<Blog[]>{
     return  this.http.get<Blog[]>(environment.baseUrl+'blog')
+  }
+
+  getBlogbyId(id:number):Observable<Blog>{
+    return this.http.get<Blog>(environment.baseUrl+"blog/"+id)
+  }
+
+  createBlog(blog:Blog){
+    return this.http.post(environment.baseUrl + 'blog',blog);
+  }
+
+  editBlog(blog:Blog){
+    return this.http.put(environment.baseUrl + 'blog/' + blog.id,blog);
+
+  }
+
+  deleteBlog(id:number){
+    return this.http.delete(environment.baseUrl + 'blog/' + id);
   }
 }

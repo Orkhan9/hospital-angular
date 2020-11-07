@@ -16,9 +16,12 @@ export class MainDoctorComponent implements OnInit {
   }
 
   getAllDoctors(){
-    this.doctorService.getAllDoctors().subscribe(doctors=>{
-      this.doctors=doctors
-      // console.log(this.doctorService);
+    this.doctorService.getAllDoctors()
+      .subscribe(doctors=>{
+      this.doctors=doctors,
+        error=>console.log(error);
     })
   }
+
+
 }

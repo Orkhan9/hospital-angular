@@ -7,5 +7,4 @@ export class Doctor {
   department:string;
   departmentId:number;
   photoUrl:string;
-  photo:File;
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Service} from '../../../../models/service';
 import {ServiceService} from '../../../../service/service.service';
+import {log} from 'util';
 
 @Component({
   selector: 'app-main-service',
@@ -12,14 +13,15 @@ export class MainServiceComponent implements OnInit {
   constructor(private serviceService:ServiceService) { }
 
   ngOnInit(): void {
-    this.getAllservice()
+    this.getAllServices()
   }
 
-  getAllservice(){
-
-    this.serviceService.getAllServices().subscribe(service=>
-      this.services=service);
-    console.log("nese")
+  getAllServices(){
+    this.serviceService.getAllServices()
+      .subscribe(services=>{
+        this.services=services,
+          error=>console.log(error);
+      })
   }
 
 }

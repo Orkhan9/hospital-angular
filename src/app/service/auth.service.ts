@@ -12,6 +12,7 @@ export class AuthService {
  jwtHelper=new JwtHelperService();
  decodedToken:any;
   constructor(private http:HttpClient,private route:Router) { }
+
   login(loginuser:any){
    return this.http.post(environment.baseAuthUrl+"/login",loginuser)
       .pipe(
@@ -26,19 +27,17 @@ export class AuthService {
             }else{
               this.route.navigate([''])
             }
-
-
-
           }
         })
       )
   }
+
   register(model:any){
    return this.http.post(environment.baseAuthUrl+"/register",model)
   }
+
   loggedIn(){
     const token=localStorage.getItem("token")
-   return  !this.jwtHelper.isTokenExpired(token);
-
+    return !this.jwtHelper.isTokenExpired(token);
   }
 }

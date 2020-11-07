@@ -1,4 +1,5 @@
 export class Blog {
+  id:number
   title:string;
   topic:string;
   description:string;

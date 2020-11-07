@@ -7,9 +7,9 @@ const route:Routes=[
   {path:'',component:AdminLayoutComponent,children:[
       {path:'doctor',loadChildren:()=>import('../admin/admin-doctor/admin-doctor.module').then(m=>m.AdminDoctorModule)},
       {path:'department',loadChildren:()=>import('../admin/admin-department/admin-department.module').then(m=>m.AdminDepartmentModule)},
-      {path:'service',loadChildren:()=>import('../admin/admin-service/admin-service.module').then(m=>m.AdminServiceModule)}
-
-      ]}
+      {path:'service',loadChildren:()=>import('../admin/admin-service/admin-service.module').then(m=>m.AdminServiceModule)},
+      {path:'blog',loadChildren:()=>import('../admin/admin-blog/admin-blog.module').then(m=>m.AdminBlogModule)}
+  ]}
 ]
 
 @NgModule({

@@ -16,8 +16,10 @@ export class MainBlogComponent implements OnInit {
   }
 
   getAllBlogs(){
-    this.blogService.getAllDepartments().subscribe(blogs=>{
-      this.blogs=blogs
+    this.blogService.getAllBlogs()
+      .subscribe(blogs=>{
+        this.blogs=blogs,
+        error=>console.log(error);
     })
   }
 
