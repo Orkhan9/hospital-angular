@@ -11,7 +11,8 @@ import { LeftSidebarComponent } from './shared/components/admin-layout/left-side
 
 
 @NgModule({
-  declarations: [AdminLayoutComponent, AdminNavbarComponent, AdminFooterComponent, LeftSidebarComponent],
+  declarations: [AdminLayoutComponent, AdminNavbarComponent,
+    AdminFooterComponent, LeftSidebarComponent],
   imports: [
     CommonModule,
     AdminRoutingModule,

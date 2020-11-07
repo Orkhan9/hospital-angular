@@ -25,7 +25,6 @@ export class DepartmentService {
 
   editDepartment(department:Department){
     return this.http.put(environment.baseUrl + 'department/' + department.id,department);
-
   }
 
   deleteDepartment(id:number){

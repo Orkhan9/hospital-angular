@@ -1,15 +1,14 @@
 <div class="container-fluid">
 
-  <h1 class="h3 mb-3 text-gray-800">Departments List</h1>
-  <button class="btn btn-primary mb-3" [routerLink]="['/admin/department/create']">Create Department</button>
+  <h1 class="h3 mb-3 text-gray-800">About</h1>
 
   <div class="card shadow">
     <div class="card-header py-3">
       <table class="table table-bordered" width="100%" cellspacing="0">
         <thead>
         <tr>
-          <th>Name</th>
-          <th>Doctors</th>
+          <th>Title</th>
+          <th>Description</th>
           <th>Settings</th>
         </tr>
         </thead>
@@ -20,8 +19,16 @@
       <div class="table-responsive">
         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
           <tbody>
-          <tr *ngFor="let department of departments">
-            <app-admin-department-item [department]="department" (onDelete)="onDelete($event)"></app-admin-department-item>
+          <tr>
+            <td>{{about.title}}</td>
+            <td>{{about.description}}</td>
+            <td>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-sm btn-outline-warning" [routerLink]="['/admin/about/update/',about.id]">Edit</button>
+                </div>
+              </div>
+            </td>
           </tr>
           </tbody>
         </table>
@@ -30,3 +37,4 @@
   </div>
 
 </div>
+

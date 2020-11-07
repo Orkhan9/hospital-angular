@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {BioService} from '../../../../service/bio.service';
+import {Bio} from '../../../../models/bio';
 
 @Component({
   selector: 'app-main-footer',
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainFooterComponent implements OnInit {
 
-  constructor() { }
+  bio:Bio;
+  constructor(private bioService:BioService) { }
 
   ngOnInit(): void {
+    this.getBio()
+  }
+
+  getBio(){
+    this.bioService.getBio()
+      .subscribe(bio=>{
+        this.bio=bio,
+          error=>console.log(error);
+      })
   }
 
 }

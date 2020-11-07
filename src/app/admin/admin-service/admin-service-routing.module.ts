@@ -6,7 +6,7 @@ import {AdminServiceCreateComponent} from './admin-service-create/admin-service-
 import {AdminServiceUpdateComponent} from './admin-service-update/admin-service-update.component';
 import {AdminServiceDetailsComponent} from './admin-service-details/admin-service-details.component';
 
-const route:Routes=[
+const routes:Routes=[
   {path:'',component:AdminServiceComponent},
   {path:'create',component:AdminServiceCreateComponent},
   {path:'update/:id',component:AdminServiceUpdateComponent},
@@ -18,7 +18,7 @@ const route:Routes=[
   declarations: [ ],
   imports: [
     CommonModule,
-    RouterModule.forChild(route)
+    RouterModule.forChild(routes)
   ],
   exports:[RouterModule]
 })
