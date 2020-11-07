@@ -1,0 +1,61 @@
+<div class="container mt-5">
+  <div class="row mt-3">
+    <div class="col-sm-4 mt-3">
+      <h1>Update About</h1>
+    </div>
+    <div class="col-sm-8 mt-3">
+      <div *ngIf="form.dirty" class="alert alert-info">
+        <strong>Information </strong>You have made changes.Any unsaved changes will be lost
+      </div>
+    </div>
+    <div class="col">
+      <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+        <div class="form-group">
+          <label>Phone</label>
+          <input [(ngModel)]="bio.phone" formControlName="phone" class="form-control" placeholder="phone">
+          <div class="validation alert alert-danger" *ngIf="_phone.invalid && _phone.touched">
+            <div *ngIf="_phone.errors?.required">
+              Phone required
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Email</label>
+          <input [(ngModel)]="bio.email" formControlName="email" class="form-control"
+                    placeholder="email">
+          <div class="validation alert alert-danger" *ngIf="_email.invalid && _email.touched">
+            <div *ngIf="_email.errors?.required">
+              Email required
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Facebook</label>
+          <input [(ngModel)]="bio.facebook" formControlName="facebook" class="form-control"
+                 placeholder="facebook">
+          <div class="validation alert alert-danger" *ngIf="_facebook.invalid && _facebook.touched">
+            <div *ngIf="_facebook.errors?.required">
+              Facebook required
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Address</label>
+          <input [(ngModel)]="bio.address" formControlName="address" class="form-control"
+                 placeholder="address">
+          <div class="validation alert alert-danger" *ngIf="_address.invalid && _address.touched">
+            <div *ngIf="_address.errors?.required">
+              Address required
+            </div>
+          </div>
+        </div>
+
+        <button type="submit" [disabled]="form.invalid" class="btn btn-primary btn-submit">Update</button>
+      </form>
+    </div>
+  </div>
+</div>
