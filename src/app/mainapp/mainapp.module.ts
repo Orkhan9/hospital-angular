@@ -22,7 +22,6 @@ import { MainBlogComponent } from './shared/components/main-blog/main-blog.compo
 import { DepartmentPageComponent } from './department-page/department-page.component';
 import { MainServiceComponent } from './shared/components/main-service/main-service.component';
 import { BlogPageComponent } from './blog-page/blog-page.component';
-import { ShopPageComponent } from './shop-page/shop-page.component';
 import { ContactPageComponent } from './contact-page/contact-page.component';
 import { MainContactComponent } from './contact-page/main-contact/main-contact.component';
 import { MainContactMapComponent } from './contact-page/main-contact-map/main-contact-map.component';
@@ -62,7 +61,6 @@ import { Error404PageComponent } from './error404-page/error404-page.component';
     DepartmentPageComponent,
     MainServiceComponent,
     BlogPageComponent,
-    ShopPageComponent,
     ContactPageComponent,
     MainContactComponent,
     MainContactMapComponent,
@@ -72,7 +70,8 @@ import { Error404PageComponent } from './error404-page/error404-page.component';
     LoginPageComponent,
     RegisterPageComponent,
     MainHomeCarouselComponent,
-    Error404PageComponent,],
+    Error404PageComponent
+    ],
     imports: [
         CommonModule,
         MainappRoutingModule,

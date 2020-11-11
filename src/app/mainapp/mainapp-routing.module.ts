@@ -7,7 +7,6 @@ import {AboutPageComponent} from './about-page/about-page.component';
 import {DoctorPageComponent} from './doctor-page/doctor-page.component';
 import {DepartmentPageComponent} from './department-page/department-page.component';
 import {BlogPageComponent} from './blog-page/blog-page.component';
-import {ShopPageComponent} from './shop-page/shop-page.component';
 import {ContactPageComponent} from './contact-page/contact-page.component';
 import {ServiceDetailPageComponent} from './service-detail-page/service-detail-page.component';
 
@@ -19,7 +18,8 @@ const route:Routes=[
       {path:'doctor',component:DoctorPageComponent},
       {path:'department',component:DepartmentPageComponent},
       {path:'blog',component:BlogPageComponent},
-      {path:'shop',component:ShopPageComponent},
+      {path:'shop',loadChildren: ()=> import('./shop-page/shop.module').then(mod => mod.ShopModule)},
+      {path: 'basket', loadChildren: ()=> import('./basket/basket.module').then(mod => mod.BasketModule)},
       {path:'contact',component:ContactPageComponent},
       {path:'service/detail/:id',component:ServiceDetailPageComponent},
       {path:'**',redirectTo:'home',pathMatch:'full'}
