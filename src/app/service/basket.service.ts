@@ -28,7 +28,7 @@ export class BasketService {
         map((basket: IBasket) => {
           this.basketSource.next(basket);
           this.calculateTotals();
-          console.log(this.getCurrentBasketValue())
+          // console.log(this.getCurrentBasketValue())
         })
       );
   }
@@ -109,7 +109,8 @@ export class BasketService {
     const total = subtotal + shipping;
     this.basketTotalSource.next({shipping, total, subtotal});
   }
- product:IProduct;
+
+ // product:IProduct;
   private addOrUpdateItem(items: IBasketItem[], itemToAdd: IBasketItem, quantity: number): IBasketItem[] {
     const index = items.findIndex(i => i.id === itemToAdd.id);
     if (index === -1) {

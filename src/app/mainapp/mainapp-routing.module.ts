@@ -9,6 +9,7 @@ import {DepartmentPageComponent} from './department-page/department-page.compone
 import {BlogPageComponent} from './blog-page/blog-page.component';
 import {ContactPageComponent} from './contact-page/contact-page.component';
 import {ServiceDetailPageComponent} from './service-detail-page/service-detail-page.component';
+import {MainBlogDetailsComponent} from './shared/components/main-blog/main-blog-details/main-blog-details.component';
 
 const route:Routes=[
   {path:'',component:MainLayoutComponent,data:{breadcrumb:'Home'},children:[
@@ -18,6 +19,7 @@ const route:Routes=[
       {path:'doctor',component:DoctorPageComponent},
       {path:'department',component:DepartmentPageComponent},
       {path:'blog',component:BlogPageComponent},
+      {path:'blog/detail/:id',component:MainBlogDetailsComponent},
       {path:'shop',loadChildren: ()=> import('./shop-page/shop.module').then(mod => mod.ShopModule)},
       {path: 'basket', loadChildren: ()=> import('./basket/basket.module').then(mod => mod.BasketModule)},
       {path:'contact',component:ContactPageComponent},

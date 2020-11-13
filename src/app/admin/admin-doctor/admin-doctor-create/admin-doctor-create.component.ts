@@ -7,6 +7,7 @@ import {Doctor} from '../../../models/doctor';
 import {ToastrService} from 'ngx-toastr';
 import {DepartmentService} from '../../../service/department.service';
 import {HttpClient} from '@angular/common/http';
+import {FileService} from '../../../service/file.service';
 
 @Component({
   selector: 'app-admin-doctor-create',
@@ -19,7 +20,8 @@ export class AdminDoctorCreateComponent implements OnInit {
   photo:string;
   constructor(private doctorService:DoctorService,private route:Router
               ,private toastr: ToastrService,private departmentService:DepartmentService
-              ,private http:HttpClient) { }
+              ,private http:HttpClient
+              ,private fileService:FileService) { }
 
   ngOnInit(): void {
     this.formCreate();
@@ -46,15 +48,31 @@ export class AdminDoctorCreateComponent implements OnInit {
       })
   }
 
+  filetoupload:File=null;
   selectFile(event) {
-  if(event.target.files[0]){
-    let reader=new FileReader();
-    let file=event.target.files[0];
-    reader.readAsDataURL(file);
-    reader.onload=()=>{
-      this.photo=(<string>reader.result).split(',')[1];
-    }
-}
+    this.filetoupload=event.target.files[0];
+    this.fileService.createFile(this.filetoupload).subscribe(data=>console.log(data))
+
+
+
+
+
+
+
+  // if(event.target.files){
+  //   const formData = new FormData();
+  //   formData.append('file[]',event.target.files[0]);
+  //   let reader=new FileReader();
+  //   let file=event.target.files[0];
+  //   reader.readAsDataURL(file);
+  //   reader.onload=()=>{
+  //     this.photo=(<string>reader.result).split(',')[1];
+  //   }
+  //   this.fileService.createFile(file).subscribe(x=> {
+  //     console.log(x);
+  //   },error=>this.toastr.error(error));
+  //   console.log(file);
+// }
   }
 
   onSubmit() {

@@ -35,6 +35,7 @@ import { LoginPageComponent } from './login-page/login-page.component';
 import { RegisterPageComponent } from './register-page/register-page.component';
 import { MainHomeCarouselComponent } from './home-page/main-home-carousel/main-home-carousel.component';
 import { Error404PageComponent } from './error404-page/error404-page.component';
+import { MainBlogDetailsComponent } from './shared/components/main-blog/main-blog-details/main-blog-details.component';
 
 
 
@@ -70,7 +71,8 @@ import { Error404PageComponent } from './error404-page/error404-page.component';
     LoginPageComponent,
     RegisterPageComponent,
     MainHomeCarouselComponent,
-    Error404PageComponent
+    Error404PageComponent,
+    MainBlogDetailsComponent
     ],
     imports: [
         CommonModule,

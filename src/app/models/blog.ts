@@ -5,4 +5,5 @@ export class Blog {
   description:string;
   photoUrl:string;
   publishTime:Date;
+  comments:Comment[]=[];
 }

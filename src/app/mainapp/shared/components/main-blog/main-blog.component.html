@@ -17,7 +17,7 @@
       <div class="col-md-6 col-lg-4" *ngFor="let blog of blogs">
         <div class="blog-item">
           <div class="img-box">
-            <a href="01_blog.html" class="open-post">
+            <a [routerLink]="['/blog/detail/',blog.id]" class="open-post">
               <img class="img-fluid" src="assets/images/blog/01_blog.jpg" alt="01 Blog">
             </a>
             <ul>
@@ -25,12 +25,12 @@
             </ul>
           </div>
           <div class="text-box">
-            <span class="blog-date">{{blog.publishTime}}</span>
-            <a href="01_blog.html" class="title-blog">
+            <span class="blog-date">{{blog.publishTime|date}}</span>
+            <a [routerLink]="['/blog/detail/',blog.id]" class="title-blog">
               <h5>{{blog.title}}</h5>
             </a>
             <p>{{blog.description}}</p>
-            <a href="01_blog.html" class="link">Read More</a>
+            <a [routerLink]="['/blog/detail/',blog.id]"  class="link">Read More</a>
           </div>
         </div>
       </div>
