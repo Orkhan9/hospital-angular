@@ -4,6 +4,9 @@ import {AlertifyService} from '../../../../service/alertify.service';
 import {JwtHelperService} from '@auth0/angular-jwt';
 import {BioService} from '../../../../service/bio.service';
 import {Bio} from '../../../../models/bio';
+import {Observable} from 'rxjs';
+import {IBasket} from '../../../basket/basket';
+import {BasketService} from '../../../../service/basket.service';
 
 @Component({
   selector: 'app-main-navbar',
@@ -12,13 +15,19 @@ import {Bio} from '../../../../models/bio';
 })
 export class MainNavbarComponent implements OnInit {
 
+  basket$: Observable<IBasket>
   bio:Bio;
   helper=new JwtHelperService();
-  constructor(public authService:AuthService,private alertify:AlertifyService
-  ,private bioService:BioService) { }
+  constructor(public authService:AuthService
+              ,private alertify:AlertifyService
+              ,private bioService:BioService
+              ,private basketService: BasketService) { }
 
   ngOnInit(): void {
-    this.getBio()
+    this.getBio();
+    if(this.authService.loggedIn()){
+      this.basket$ = this.basketService.basket$;
+    }
   }
 
   getBio(){

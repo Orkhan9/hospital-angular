@@ -282,3 +282,12 @@
 .nav-bar .box ul li.cart .cart-popup .button-cart button:first-of-type{
   margin-right: 10px;
 }
+
+.basket{
+  position: absolute;
+  bottom: 30px;
+  left:20px;
+  font-size: 13px;
+  font-weight: bold;
+  color: white;
+}

@@ -6,6 +6,8 @@ import {Basket, IBasket, IBasketItem, IBasketTotals} from '../mainapp/basket/bas
 import { IProduct} from '../models/product';
 import {map} from 'rxjs/operators';
 import {ProductService} from './product.service';
+import {JwtHelperService} from '@auth0/angular-jwt';
+import {AuthService} from './auth.service';
 
 
 @Injectable({
@@ -19,8 +21,10 @@ export class BasketService {
   private basketTotalSource = new BehaviorSubject<IBasketTotals>(null);
   basketTotal$ = this.basketTotalSource.asObservable();
   shipping = 0;
+  jwtHelper=new JwtHelperService();
+  constructor(private http: HttpClient
+              ,private productService:ProductService) { }
 
-  constructor(private http: HttpClient,private productService:ProductService) { }
 
   getBasket(id: string) {
     return this.http.get(this.baseUrl + 'basket?id=' + id)
@@ -142,7 +146,8 @@ export class BasketService {
       pictureUrl: item.pictureUrl,
       quantity,
       brand: item.productBrand,
-      type: item.productType
+      type: item.productType,
+      userId:parseInt(this.jwtHelper.decodeToken(localStorage.getItem('token')).nameid)
     };
   }
 }

@@ -25,7 +25,7 @@
             </ul>
           </div>
           <div class="text-box">
-            <span class="blog-date">{{blog.publishTime|date}}</span>
+            <span class="blog-date">{{blog.publishTime|date:'medium'}}</span>
             <a [routerLink]="['/blog/detail/',blog.id]" class="title-blog">
               <h5>{{blog.title}}</h5>
             </a>

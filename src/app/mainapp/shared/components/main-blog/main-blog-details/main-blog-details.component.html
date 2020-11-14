@@ -43,9 +43,10 @@
                   </div>
                   <div class="text-box">
                     <h5>{{comment.user}}</h5>
-                    <div class="time">{{comment.publishTime|date}}</div>
+                    <div class="time">{{comment.publishTime|date:'medium'}}</div>
                     <p>{{comment.context}}</p>
-                    <a href="#">Reply</a>
+                    <button class="btn btn-outline-primary btn-sm mr-2">Reply</button>
+                    <button *ngIf="id==comment.userId" class="btn btn-outline-danger btn-sm" (click)="deleteComment(comment.id)">Delete</button>
                   </div>
                 </div>
 <!--                <div class="comments-box reply">-->
@@ -69,21 +70,15 @@
               </div>
               <div class="inner-add-comments">
                 <div class="row">
-                  <div class="col-md-6 inner-add-comments-box">
-                    <input type="text" placeholder="Name">
-                  </div>
-                  <div class="col-md-6 inner-add-comments-box">
-                    <input type="Email" placeholder="Email">
-                  </div>
+                  <form  [formGroup]="form" (ngSubmit)="onSubmit()" class="col-md-12">
                   <div class="col-md-12 inner-add-comments-box">
-                    <input type="text" placeholder="Website">
+                    <textarea formControlName="context" placeholder="Leave Your Message Here" ></textarea>
                   </div>
+
                   <div class="col-md-12 inner-add-comments-box">
-                    <textarea placeholder="Your Message Here "></textarea>
+                    <button type="submit" [disabled]="form.invalid" class="btn-1">Post Comment</button>
                   </div>
-                  <div class="col-md-12 inner-add-comments-box">
-                    <a href="#" class="btn-1">Post Comment</a>
-                  </div>
+                  </form>
                 </div>
               </div>
             </div>

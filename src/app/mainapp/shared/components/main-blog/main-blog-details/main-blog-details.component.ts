@@ -8,6 +8,8 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {AppointmentService} from '../../../../../service/appointment.service';
 import {ToastrService} from 'ngx-toastr';
 import {Appointment} from '../../../../../models/appointment';
+import {JwtHelperService} from '@auth0/angular-jwt';
+import {AuthService} from '../../../../../service/auth.service';
 
 @Component({
   selector: 'app-main-blog-details',
@@ -16,20 +18,26 @@ import {Appointment} from '../../../../../models/appointment';
 })
 export class MainBlogDetailsComponent implements OnInit {
 
+  jwtHelper=new JwtHelperService();
   form: FormGroup;
   blog:Blog;
   comments:Comment[];
+  id:number;
   constructor(private blogService:BlogService
               ,private activatedRoute:ActivatedRoute
               ,private commentService:CommentService
               ,private route:Router
-              ,private toastr: ToastrService) { }
+              ,private toastr: ToastrService
+              ,private authService:AuthService) { }
 
   ngOnInit(): void {
     this.getBlogById()
     this.getCommentsByBlog()
     this.formCreate()
+    this.id=parseInt(this.authService.decodedToken?.nameid)
   }
+
+
 
   getBlogById(){
     this.blogService.getBlogbyId(+this.activatedRoute.snapshot.params.id)
@@ -57,16 +65,20 @@ export class MainBlogDetailsComponent implements OnInit {
     if(this.form.valid){
       let comment=new Comment();
       comment.context=this.form.value.context;
+      comment.userId=parseInt(this.jwtHelper.decodeToken(localStorage.getItem('token')).nameid);
+      comment.blogId=+this.activatedRoute.snapshot.params.id;
       console.log(comment);
       this.commentService.createComment(comment).subscribe(x=> {
         console.log(x);
-        this.route.navigate(['']);
+        this.route.navigate(['blog/detail/',+this.activatedRoute.snapshot.params.id]);
         this.toastr.success('Comment is created');
+        window.location.reload();
       },error=>this.toastr.error(error));
     }
   }
 
-  get _context(){
-    return this.form.get('context');
+  deleteComment(id:number) {
+    this.commentService.deleteComment(id).subscribe()
+    window.location.reload();
   }
 }

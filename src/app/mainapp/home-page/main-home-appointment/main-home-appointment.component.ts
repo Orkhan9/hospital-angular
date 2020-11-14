@@ -54,6 +54,7 @@ export class MainHomeAppointmentComponent implements OnInit {
         console.log(x);
         this.route.navigate(['']);
         this.toastr.success('Appointment is created');
+        window.location.reload();
       },error=>this.toastr.error(error));
     }
   }

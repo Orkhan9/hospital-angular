@@ -13,6 +13,7 @@ export interface IBasketItem {
   pictureUrl: string;
   brand: string;
   type: string;
+  userId:number;
 }
 
 export class Basket implements IBasket{
