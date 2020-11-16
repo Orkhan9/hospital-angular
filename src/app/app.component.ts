@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {JwtHelperService} from "@auth0/angular-jwt";
 import {AuthService} from "./service/auth.service";
 import {BasketService} from './service/basket.service';
@@ -18,10 +18,10 @@ export class AppComponent implements OnInit{
     if (token){
       this.authService.decodedToken=this.jwtHelper.decodeToken(token);
     }
-    const basketId=localStorage.getItem("basket_id")
+    const basketId=localStorage.getItem(this.jwtHelper.decodeToken(token).unique_name)
     if (basketId){
       this.basketService.getBasket(basketId).subscribe(()=>{
-        console.log("basket initialize");
+        console.log("basket initialize" + basketId);
       },error => {
         console.log(error);
       })

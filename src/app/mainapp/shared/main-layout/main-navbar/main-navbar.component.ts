@@ -15,6 +15,7 @@ import {BasketService} from '../../../../service/basket.service';
 })
 export class MainNavbarComponent implements OnInit {
 
+
   basket$: Observable<IBasket>
   bio:Bio;
   helper=new JwtHelperService();
@@ -28,6 +29,7 @@ export class MainNavbarComponent implements OnInit {
     if(this.authService.loggedIn()){
       this.basket$ = this.basketService.basket$;
     }
+    // console.log(this.helper.decodeToken(localStorage.getItem('token')).unique_name);
   }
 
   getBio(){
@@ -42,14 +44,16 @@ export class MainNavbarComponent implements OnInit {
   loggedIn(){
     // const token=localStorage.getItem("token");
     // return !!token;
-
     return this.authService.loggedIn()
   }
 
   logOut(){
-    localStorage.removeItem("token");
+    localStorage.removeItem('token');
     // console.log("logged out");
     this.alertify.warning("logged out")
+
+
+    // this.basketService.getCurrentBasketValue()
   }
 
 }

@@ -1,4 +1,5 @@
 import {v4 as uuidv4} from 'uuid'
+import {JwtHelperService} from '@auth0/angular-jwt';
 
 export interface IBasket {
   id: string;
@@ -17,9 +18,10 @@ export interface IBasketItem {
 }
 
 export class Basket implements IBasket{
-  basketItems: IBasketItem[] = [];
-  id = uuidv4();
 
+  jwtHelper=new JwtHelperService();
+  basketItems: IBasketItem[] = [];
+  id = this.jwtHelper.decodeToken(localStorage.getItem('token')).unique_name;
 }
 
 export interface IBasketTotals {

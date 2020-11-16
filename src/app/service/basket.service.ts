@@ -7,7 +7,6 @@ import { IProduct} from '../models/product';
 import {map} from 'rxjs/operators';
 import {ProductService} from './product.service';
 import {JwtHelperService} from '@auth0/angular-jwt';
-import {AuthService} from './auth.service';
 
 
 @Injectable({
@@ -22,17 +21,16 @@ export class BasketService {
   basketTotal$ = this.basketTotalSource.asObservable();
   shipping = 0;
   jwtHelper=new JwtHelperService();
-  constructor(private http: HttpClient
-              ,private productService:ProductService) { }
+  constructor(private http: HttpClient) { }
 
 
-  getBasket(id: string) {
+  getBasket(id:string) {
     return this.http.get(this.baseUrl + 'basket?id=' + id)
       .pipe(
         map((basket: IBasket) => {
           this.basketSource.next(basket);
           this.calculateTotals();
-          // console.log(this.getCurrentBasketValue())
+          console.log(this.getCurrentBasketValue())
         })
       );
   }
@@ -53,11 +51,25 @@ export class BasketService {
   addItemToBasket(item: IProduct, quantity = 1) {
     const itemToAdd: IBasketItem = this.mapProductItemToBasketItem(item, quantity);
     let basket = this.getCurrentBasketValue();
-    if (basket === null) {
-      basket = this.createBasket();
+    // console.log(basket);
+
+       if (basket === null) {
+         basket = this.createBasket();
+       }
+
+     basket.basketItems = this.addOrUpdateItem(basket.basketItems, itemToAdd, quantity);
+     this.setBasket(basket);
+  }
+
+  private addOrUpdateItem(items: IBasketItem[], itemToAdd: IBasketItem, quantity: number): IBasketItem[] {
+    const index = items.findIndex(i => i.id === itemToAdd.id);
+    if (index === -1) {
+      itemToAdd.quantity = quantity;
+      items.push(itemToAdd);
+    } else {
+      items[index].quantity += quantity;
     }
-    basket.basketItems = this.addOrUpdateItem(basket.basketItems, itemToAdd, quantity);
-    this.setBasket(basket);
+    return items;
   }
 
   incrementItemQuantity(item: IBasketItem) {
@@ -93,14 +105,14 @@ export class BasketService {
   deleteLocalBasket(id: string) {
     this.basketSource.next(null);
     this.basketTotalSource.next(null);
-    localStorage.removeItem('basket_id');
+    localStorage.removeItem(this.jwtHelper.decodeToken(localStorage.getItem('token')).unique_name);
   }
 
   deleteBasket(basket: IBasket) {
     return this.http.delete(this.baseUrl + 'basket?id=' + basket.id).subscribe(() => {
       this.basketSource.next(null);
       this.basketTotalSource.next(null);
-      localStorage.removeItem('basket_id');
+      localStorage.removeItem(this.jwtHelper.decodeToken(localStorage.getItem('token')).unique_name);
     }, error => {
       console.log(error);
     });
@@ -114,27 +126,11 @@ export class BasketService {
     this.basketTotalSource.next({shipping, total, subtotal});
   }
 
- // product:IProduct;
-  private addOrUpdateItem(items: IBasketItem[], itemToAdd: IBasketItem, quantity: number): IBasketItem[] {
-    const index = items.findIndex(i => i.id === itemToAdd.id);
-    if (index === -1) {
-      itemToAdd.quantity = quantity;
-      items.push(itemToAdd);
-    } else {
-      items[index].quantity += quantity;
-        // this.productService.getProductbyId(items[index].id).subscribe(product=>{
-        //    this.product=product;
-          //items[index].price=this.product.price;
-         // })
-
-      // console.log(this.product.price);
-    }
-    return items;
-  }
 
   private createBasket(): IBasket {
     const basket = new Basket();
-    localStorage.setItem('basket_id', basket.id);
+    const uniqueName=this.jwtHelper.decodeToken(localStorage.getItem('token')).unique_name;
+    localStorage.setItem(uniqueName, basket.id);
     return basket;
   }
 

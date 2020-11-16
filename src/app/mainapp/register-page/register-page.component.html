@@ -12,7 +12,7 @@
               <div class="text-center">
                 <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
               </div>
-              <form class="user" [formGroup]="form" (ngSubmit)="onSubmit()">
+              <form class="user" [formGroup]="form" (ngSubmit)="register()">
                 <div class="form-group row">
 
                   <div class="col-sm-6 mb-3 mb-sm-0" >
@@ -51,21 +51,20 @@
                   </div>
 
                   <div class="col-sm-6">
-                    <input type="password" formControlName="checkpassword" class="form-control form-control-user"
+                    <input type="password" formControlName="checkPassword" class="form-control form-control-user"
                            placeholder="Repeat Password">
-                    <div class="validation alert alert-danger" *ngIf="_checkpassword.invalid && _checkpassword.touched">
-                      <div *ngIf="_checkpassword.errors?.required">
-                        Checkpassword required
+                    <div class="validation alert alert-danger" *ngIf="_checkPassword.invalid && _checkPassword.touched">
+                      <div *ngIf="_checkPassword.errors?.required">
+                        CheckPassword required
                       </div>
-                      <div *ngIf="_checkpassword.errors?.isMatching">
-                        dont,cvv required
+                      <div *ngIf="_checkPassword.errors?.isMatching">
+                        CheckPassword is not correct
                       </div>
                     </div>
                   </div>
                 </div>
 
-
-                <button type="submit" class="btn btn-google btn-user btn-block">Register</button>
+                <button [disabled]="form.invalid" type="submit" class="btn btn-google btn-user btn-block">Register</button>
               </form>
               <hr>
               <div class="text-center">

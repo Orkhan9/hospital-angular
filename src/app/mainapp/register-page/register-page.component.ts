@@ -33,11 +33,11 @@ export class RegisterPageComponent implements OnInit {
       username:new FormControl('',[Validators.required]),
       email:new FormControl('',[Validators.required,Validators.email]),
       password:new FormControl('',[Validators.required]),
-      checkpassword:new FormControl('',[Validators.required,this.matchValues('password')])
+      checkPassword:new FormControl('',[Validators.required,this.matchValues('password')])
     });
   }
 
-  onSubmit() {
+  register() {
     console.log(this.form);
     if(this.form.valid){
       let registeruser= {
@@ -49,7 +49,7 @@ export class RegisterPageComponent implements OnInit {
       console.log(registeruser);
       this.authService.register(registeruser).subscribe(x=> {
         console.log(x);
-        this.route.navigate(['']);
+        this.route.navigate(['login']);
         this.toastr.success('Register is successful');
         // const token=localStorage.getItem("token")
       },error=>this.alertify.error(error));
@@ -100,8 +100,8 @@ matchValues(match:string):ValidatorFn{
     return this.form.get('password');
   }
 
-  get _checkpassword(){
-    return this.form.get('checkpassword');
+  get _checkPassword(){
+    return this.form.get('checkPassword');
   }
 
 }

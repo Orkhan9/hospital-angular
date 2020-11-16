@@ -5,6 +5,7 @@ import {Router} from '@angular/router';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {ToastrService} from 'ngx-toastr';
 import {JwtHelperService} from '@auth0/angular-jwt';
+import {BasketService} from '../../service/basket.service';
 
 @Component({
   selector: 'app-login-page',
@@ -16,7 +17,10 @@ export class LoginPageComponent implements OnInit {
   // model:any={};
   helper=new JwtHelperService();
   constructor(public authService:AuthService
-    ,private alertify:AlertifyService,private route:Router,private toastr: ToastrService) { }
+              ,private alertify:AlertifyService
+              ,private route:Router
+              ,private toastr: ToastrService
+              ,private basketService:BasketService) { }
 
   ngOnInit(): void {
     this.formCreate()
@@ -29,27 +33,21 @@ export class LoginPageComponent implements OnInit {
     });
   }
 
-  onSubmit() {
-    if(this.form.valid){
+  login() {
+    if (this.form.valid) {
 
-      let loginuser= {
-        username:this.form.value.username,
-        password:this.form.value.password
+      let loginUser = {
+        username: this.form.value.username,
+        password: this.form.value.password
       }
-      console.log(loginuser);
-      this.authService.login(loginuser).subscribe(x=> {
+      this.authService.login(loginUser).subscribe(x => {
         console.log(x);
-        console.log(this.helper.decodeToken(localStorage.getItem('token')).role);
-        if(this.helper.decodeToken(localStorage.getItem('token')).role=="admin"){
-          this.route.navigate(['/admin']);
-        }else{
-          this.route.navigate(['']);
-        }
-        this.toastr.success('Login is successful');
-        // const token=localStorage.getItem("token")
-      },error=>this.alertify.error(error));
+
+      }, error => this.alertify.error(error));
     }
   }
+
+
 
   get _username(){
     return this.form.get('username');
@@ -80,10 +78,9 @@ export class LoginPageComponent implements OnInit {
     return this.authService.loggedIn()
   }
 
-  logOut(){
-    localStorage.removeItem("token");
-    // console.log("logged out");
-    this.alertify.message("logged out");
-  }
+  // logOut(){
+  //   localStorage.removeItem("token");
+  //   this.alertify.message("logged out");
+  // }
 
 }
