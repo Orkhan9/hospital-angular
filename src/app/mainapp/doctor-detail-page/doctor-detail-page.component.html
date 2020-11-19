@@ -1,0 +1,24 @@
+<div class="container mt-5">
+  <div class="row mt-3">
+    <div class="col-md-4" >
+      <div class="card mb-4 box-shadow">
+        <img class="card-img-top" style="height: 225px; width: 100%; display: block;" src="{{doctor.photoUrl}}">
+        <div class="card-body">
+          <h4>Name: {{doctor.name}}</h4>
+          <h5>Profession: {{doctor.profession}}</h5>
+          <h5>Facebook: {{doctor.facebook}}</h5>
+          <h5 class="card-text">Department: {{doctor.department}}</h5>
+          <p>Description: {{doctor.description}}</p>
+          <div class="d-flex justify-content-between align-items-center">
+            <div class="btn-group">
+              <button type="button" class="btn btn-sm btn-outline-success" [routerLink]="['/doctor/',doctor.id]">View</button>
+              <button type="button" class="btn btn-sm btn-outline-warning">Edit</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
