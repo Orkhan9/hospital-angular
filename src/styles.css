@@ -154,14 +154,8 @@ p {
 .btn-4 i{
   margin-right: 8px;
 }
-.btn-1:hover{
-  background-color: #006492;
-  border: 2px solid #006492;
-}
-.btn-2{
-  background-color: #006492;
-  border: 2px solid #006492;
-}
+
+
 .btn-2:hover{
   background-color: #3EB7E9;
   border: 2px solid #3EB7E9;

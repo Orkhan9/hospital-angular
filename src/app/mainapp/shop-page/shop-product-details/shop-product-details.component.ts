@@ -3,6 +3,8 @@ import {ActivatedRoute} from '@angular/router';
 import {ProductService} from '../../../service/product.service';
 import {IProduct} from '../../../models/product';
 import {BasketService} from '../../../service/basket.service';
+import {AuthService} from '../../../service/auth.service';
+import {ToastrService} from 'ngx-toastr';
 
 @Component({
   selector: 'app-shop-product-details',
@@ -11,8 +13,11 @@ import {BasketService} from '../../../service/basket.service';
 })
 export class ShopProductDetailsComponent implements OnInit {
 
-  constructor(private productService:ProductService,private activatedRoute:ActivatedRoute
-  ,private basketService:BasketService) { }
+  constructor(private productService:ProductService
+              ,private activatedRoute:ActivatedRoute
+              ,private basketService:BasketService
+              ,private authService:AuthService
+              ,private toastrService:ToastrService) { }
   product:IProduct;
   ngOnInit(): void {
     this.getProductbyId();
@@ -27,8 +32,11 @@ export class ShopProductDetailsComponent implements OnInit {
   }
 
   addItemToBasket(){
-    this.basketService.addItemToBasket(this.product)
-    console.log(this.product);
+    if(this.authService.loggedIn()){
+      this.basketService.addItemToBasket(this.product)
+    }else{
+      this.toastrService.warning('For shopping please go to Login')
+    }
   }
 
 }

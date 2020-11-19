@@ -10,6 +10,7 @@ import {BsDropdownModule} from "ngx-bootstrap/dropdown";
 import {ToastrModule} from 'ngx-toastr';
 import {ModalModule} from 'ngx-bootstrap/modal';
 import {PreventUnsavedGuardDepartment, PreventUnsavedGuardDoctor, PreventUnsavedGuardService} from './guards/prevent-unsaved-guard';
+import {PaginationModule} from 'ngx-bootstrap/pagination';
 
 
 
@@ -27,7 +28,8 @@ import {PreventUnsavedGuardDepartment, PreventUnsavedGuardDoctor, PreventUnsaved
     ToastrModule.forRoot(),
     ModalModule.forRoot(),
     HttpClientModule,
-    BsDropdownModule.forRoot()
+    BsDropdownModule.forRoot(),
+    PaginationModule.forRoot()
   ],
   providers: [
     ErrorInterceptorProvider,

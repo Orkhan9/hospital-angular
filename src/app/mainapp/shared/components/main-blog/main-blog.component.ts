@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {BlogService} from '../../../../service/blog.service';
 import {Blog} from '../../../../models/blog';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-main-blog',

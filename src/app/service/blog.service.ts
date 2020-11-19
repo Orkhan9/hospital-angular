@@ -15,7 +15,7 @@ export class BlogService {
     return  this.http.get<Blog[]>(environment.baseUrl+'blog')
   }
 
-  getBlogbyId(id:number):Observable<Blog>{
+  getBlogById(id:number):Observable<Blog>{
     return this.http.get<Blog>(environment.baseUrl+"blog/"+id)
   }
 

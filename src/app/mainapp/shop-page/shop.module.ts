@@ -4,6 +4,8 @@ import {ShopRoutingModule} from './shop-routing.module';
 import {ShopPageComponent} from './shop-page.component';
 import {ShopProductDetailsComponent} from './shop-product-details/shop-product-details.component';
 import { ShopProductItemComponent } from './shop-product-item/shop-product-item.component';
+import {PaginationModule} from 'ngx-bootstrap/pagination';
+import {FormsModule} from '@angular/forms';
 
 
 
@@ -15,7 +17,9 @@ import { ShopProductItemComponent } from './shop-product-item/shop-product-item.
   ],
   imports: [
     CommonModule,
-    ShopRoutingModule
+    ShopRoutingModule,
+    PaginationModule,
+    FormsModule
   ]
 })
 export class ShopModule { }

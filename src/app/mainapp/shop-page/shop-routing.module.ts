@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import {RouterModule, Routes} from '@angular/router';
 import {ShopPageComponent} from './shop-page.component';
 import {ShopProductDetailsComponent} from './shop-product-details/shop-product-details.component';
+import {ProductResolver} from './product-resolver';
 
 const route:Routes=[
   {path:'',component:ShopPageComponent},

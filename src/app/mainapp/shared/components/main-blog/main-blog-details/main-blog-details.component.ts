@@ -27,7 +27,7 @@ export class MainBlogDetailsComponent implements OnInit {
               ,private activatedRoute:ActivatedRoute
               ,private commentService:CommentService
               ,private route:Router
-              ,private toastr: ToastrService
+              ,private toastrService: ToastrService
               ,private authService:AuthService) { }
 
   ngOnInit(): void {
@@ -40,7 +40,7 @@ export class MainBlogDetailsComponent implements OnInit {
 
 
   getBlogById(){
-    this.blogService.getBlogbyId(+this.activatedRoute.snapshot.params.id)
+    this.blogService.getBlogById(+this.activatedRoute.snapshot.params.id)
       .subscribe(blog=>{
         this.blog=blog,
           error=>console.log(error)
@@ -71,9 +71,9 @@ export class MainBlogDetailsComponent implements OnInit {
       this.commentService.createComment(comment).subscribe(x=> {
         console.log(x);
         this.route.navigate(['blog/detail/',+this.activatedRoute.snapshot.params.id]);
-        this.toastr.success('Comment is created');
+        this.toastrService.success('Comment is created');
         window.location.reload();
-      },error=>this.toastr.error(error));
+      },error=>this.toastrService.error(error));
     }
   }
 

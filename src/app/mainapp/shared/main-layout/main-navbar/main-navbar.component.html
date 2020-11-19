@@ -1,4 +1,15 @@
 
+
+<div class="card border-0"
+     style="position: absolute;top:200px;right:210px;z-index: 2;
+     background: transparent;width: 280px;">
+  <div class="card-body">
+    <ul *ngFor="let searchItem of searchItems">
+      <app-search-item [searchItem]="searchItem"></app-search-item>
+    </ul>
+  </div>
+</div>
+
 <nav class="nav-box fixed-top">
   <div class="container">
     <div class="top-nav">
@@ -19,7 +30,8 @@
               <li><a href="#"><span>Email : </span>{{bio.email}}</a></li>
             </ul>
           </div>
-          <a href="01_appointment.html" class="btn-1">Make An Appointment</a>
+          <input type="text" (focusout)="lorem($event)" (keyup)="search($event)"
+                 class="btn-1" placeholder="search">
         </div>
       </div>
     </div>
@@ -92,34 +104,14 @@
           <li class="cart" style="position: relative">
             <a *ngIf="authService.loggedIn()" [routerLink]="['basket']"><i class="fas fa-shopping-cart"></i></a>
             <div *ngIf="(basket$ | async) as basket" class="cart-no basket" >{{basket.basketItems.length}}</div>
-<!--            <div class="cart-popup">-->
-<!--              <div class="item">-->
-<!--                <img class="img-fluid" src="../../../../../assets/images/shop/01_shop.jpg" alt="01 Shop">-->
-<!--                <div class="item-content">-->
-<!--                  <div>Mismo Briefcase</div>-->
-<!--                  <span>2 x $ 38.00</span>-->
-<!--                </div>-->
-<!--                <span class="delete-item">x</span>-->
-<!--              </div>-->
-<!--              <div class="item">-->
-<!--                <img class="img-fluid" src="../../../../../assets/images/shop/02_shop.jpg" alt="02 Shop">-->
-<!--                <div class="item-content">-->
-<!--                  <div>Brown Leather</div>-->
-<!--                  <span>1 x $ 28.00</span>-->
-<!--                </div>-->
-<!--                <span class="delete-item">x</span>-->
-<!--              </div>-->
-<!--              <div class="subtotal">-->
-<!--                <span>Subtotal:</span>-->
-<!--                <span>$ 88.00</span>-->
-<!--              </div>-->
-<!--              <div class="button-cart">-->
-<!--                <button class="btn-1">View Cart</button>-->
-<!--                <button class="btn-3">Checkout</button>-->
-<!--              </div>-->
-<!--            </div>-->
+
           </li>
-          <li><a href="#" class="open-search"><i class="fas fa-search"></i></a></li>
+          <li >
+<!--            <a href="#" class="open-search"><i class="fas fa-search"></i></a>-->
+<!--            <input type="text" (keyup)="search($event)" style="position: absolute;top: 40px;right:0px">-->
+          </li>
+
+
         </ul>
       </div>
     </div>

@@ -7,6 +7,10 @@ import {Bio} from '../../../../models/bio';
 import {Observable} from 'rxjs';
 import {IBasket} from '../../../basket/basket';
 import {BasketService} from '../../../../service/basket.service';
+import {HttpClient, HttpParams} from '@angular/common/http';
+import {environment} from '../../../../../environments/environment';
+import {tap} from 'rxjs/operators';
+import {Search} from '../../../../models/search';
 
 @Component({
   selector: 'app-main-navbar',
@@ -15,21 +19,34 @@ import {BasketService} from '../../../../service/basket.service';
 })
 export class MainNavbarComponent implements OnInit {
 
-
+  searchItems:Search[];
   basket$: Observable<IBasket>
   bio:Bio;
   helper=new JwtHelperService();
   constructor(public authService:AuthService
               ,private alertify:AlertifyService
               ,private bioService:BioService
-              ,private basketService: BasketService) { }
+              ,private basketService: BasketService
+              ,private http:HttpClient) { }
 
   ngOnInit(): void {
     this.getBio();
     if(this.authService.loggedIn()){
       this.basket$ = this.basketService.basket$;
     }
-    // console.log(this.helper.decodeToken(localStorage.getItem('token')).unique_name);
+  }
+
+  search(event):Observable<Search[]>{
+    const paramsIoS = new HttpParams().set('name', event.target.value)
+      .set('path', window.location.pathname.substr(1))
+
+    this.http.get<Search[]>(environment.baseUrl+'search',{params: paramsIoS})
+      .pipe(
+      tap(data => console.log('Checked')
+    )).subscribe(data=>{
+      this.searchItems=data
+    })
+    return
   }
 
   getBio(){
@@ -42,18 +59,18 @@ export class MainNavbarComponent implements OnInit {
 
 
   loggedIn(){
-    // const token=localStorage.getItem("token");
-    // return !!token;
     return this.authService.loggedIn()
   }
 
   logOut(){
     localStorage.removeItem('token');
-    // console.log("logged out");
     this.alertify.warning("logged out")
 
 
-    // this.basketService.getCurrentBasketValue()
+
   }
 
+  lorem(event) {
+    event.target.value="";
+  }
 }

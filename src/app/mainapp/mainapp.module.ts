@@ -36,6 +36,11 @@ import { RegisterPageComponent } from './register-page/register-page.component';
 import { MainHomeCarouselComponent } from './home-page/main-home-carousel/main-home-carousel.component';
 import { Error404PageComponent } from './error404-page/error404-page.component';
 import { MainBlogDetailsComponent } from './shared/components/main-blog/main-blog-details/main-blog-details.component';
+import { SearchItemComponent } from './shared/main-layout/main-navbar/search-item/search-item.component';
+import { DoctorDetailPageComponent } from './doctor-detail-page/doctor-detail-page.component';
+import { DepartmentDetailPageComponent } from './department-detail-page/department-detail-page.component';
+import { ProductDetailPageComponent } from './product-detail-page/product-detail-page.component';
+import { BlogDetailPageComponent } from './blog-detail-page/blog-detail-page.component';
 
 
 
@@ -72,7 +77,12 @@ import { MainBlogDetailsComponent } from './shared/components/main-blog/main-blo
     RegisterPageComponent,
     MainHomeCarouselComponent,
     Error404PageComponent,
-    MainBlogDetailsComponent
+    MainBlogDetailsComponent,
+    SearchItemComponent,
+    DoctorDetailPageComponent,
+    DepartmentDetailPageComponent,
+    ProductDetailPageComponent,
+    BlogDetailPageComponent,
     ],
     imports: [
         CommonModule,

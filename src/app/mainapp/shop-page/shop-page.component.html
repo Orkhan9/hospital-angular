@@ -1,95 +1,3 @@
-
-<!--<div class="container mt-5">-->
-<!--  <div class="row">-->
-
-<!--    <section class="col-3">-->
-<!--      <ng-container *ngIf="brands && types">-->
-<!--        <h5 class="text-warning ml-3">Sort</h5>-->
-<!--        <select class="custom-select mb-3" (change)="onSortSelected($event.target.value)">-->
-<!--          <option-->
-<!--            selected *ngFor="let sort of sortOption"-->
-<!--            [value]="sort.value"-->
-<!--          >{{sort.name}}-->
-<!--          </option>-->
-<!--        </select>-->
-
-<!--        <h5 class="text-warning ml-3">Brands</h5>-->
-<!--        <ul class="list-group my-3">-->
-<!--          <li class="list-group-item "-->
-<!--              *ngFor="let brand of brands"-->
-<!--              [class.active]="brand.id === shopParams.brandId"-->
-<!--              [value]="brand.id"-->
-<!--              (click)="onBrandSelected(brand.id)"-->
-<!--          >-->
-<!--            {{brand.name}}-->
-<!--          </li>-->
-<!--        </ul>-->
-<!--      </ng-container>-->
-
-<!--      <h5 class="text-warning ml-3">Types</h5>-->
-<!--      <ul class="list-group my-3">-->
-<!--        <li class="list-group-item "-->
-<!--            *ngFor="let type of types"-->
-<!--            [class.active]="type.id === shopParams.typeId"-->
-<!--            [value]="type.id"-->
-<!--            (click)="onTypeSelected(type.id)"-->
-<!--        >-->
-<!--          {{type.name}}-->
-<!--        </li>-->
-<!--      </ul>-->
-<!--    </section>-->
-
-<!--    <section class="col-9">-->
-
-<!--      <div class="d-flex justify-content-between ">-->
-<!--        <app-paging-header-->
-<!--          [pageNumber]="shopParams.pageNumber"-->
-<!--          [pageSize]="shopParams.pageSize"-->
-<!--          [totalCount]="totalCount"-->
-<!--        >-->
-<!--        </app-paging-header>-->
-<!--        <div class="form-inline mt-2">-->
-<!--          <input type="text" class="form-control" style="width: 300px" [(ngModel)]="shopParams.search" placeholder="Search"/>-->
-<!--          <button class="btn btn-outline-success my-2 mx-2" (click)="onSearch(shopParams.search)">Search</button>-->
-<!--          <button class="btn btn-outline-secondary my-2" (click)="onReset()">Reset</button>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--      <div class="row">-->
-<!--        <div class="col-md-4 mt-4" *ngFor="let item of products">-->
-<!--          <app-product-item [product]="item"></app-product-item>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--      <div class="d-flex justify-content-center mt-4" *ngIf="totalCount && totalCount > 0">-->
-<!--        <app-pager-->
-<!--          [totalCount]="totalCount"-->
-<!--          [pageSize]="shopParams.pageSize"-->
-<!--          (pageChange)="onPageChange($event)"-->
-<!--        >-->
-<!--        </app-pager>-->
-<!--      </div>-->
-<!--    </section>-->
-<!--  </div>-->
-<!--</div>-->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <section class="shop py-100">
   <div class="container">
     <div class="row">
@@ -97,15 +5,15 @@
        <app-shop-product-item [product]="product"></app-shop-product-item>
       </div>
       <div class="col-md-12">
-        <div class="pagination-blog-area">
-          <ul class="pagination one">
-            <li>Prev</li>
-            <li class="active">1</li>
-            <li>2</li>
-            <li>3</li>
-            <li>Next</li>
-          </ul>
-        </div>
+<!--        <pagination [boundaryLinks]="true"-->
+<!--                    [totalItems]="pagination.totalItems"-->
+<!--                    [itemsPerPage]="pagination.itemPerPage"-->
+<!--                    [(ngModel)]="pagination.currentPage"-->
+
+<!--                    (pageChanged)="pageChanged($event)"-->
+<!--                    previousText="&lsaquo;" nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;">-->
+
+<!--        </pagination>-->
       </div>
     </div>
   </div>

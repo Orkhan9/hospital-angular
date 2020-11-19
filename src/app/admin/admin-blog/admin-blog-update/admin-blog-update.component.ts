@@ -24,8 +24,10 @@ export class AdminBlogUpdateComponent implements OnInit {
       $event.returnValue=true;
     }
   }
-  constructor(private blogService:BlogService,private route:Router
-    ,private activatedRoute:ActivatedRoute,private toastr: ToastrService) { }
+  constructor(private blogService:BlogService
+              ,private route:Router
+              ,private activatedRoute:ActivatedRoute
+              ,private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.formUpdate();
@@ -41,7 +43,7 @@ export class AdminBlogUpdateComponent implements OnInit {
   }
 
   getBlogById(){
-    this.blogService.getBlogbyId(+this.activatedRoute.snapshot.params.id)
+    this.blogService.getBlogById(+this.activatedRoute.snapshot.params.id)
       .subscribe(blog=>{
         this.blog=blog,
           error=>console.log(error)
