@@ -7,6 +7,7 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class SearchItemComponent implements OnInit {
 
+
   pathName:string;
   @Input() searchItem
   constructor() { }
@@ -14,5 +15,4 @@ export class SearchItemComponent implements OnInit {
   ngOnInit(): void {
     this.pathName=window.location.pathname.substr(1);
   }
-
 }

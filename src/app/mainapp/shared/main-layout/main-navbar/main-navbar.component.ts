@@ -19,6 +19,7 @@ import {Search} from '../../../../models/search';
 })
 export class MainNavbarComponent implements OnInit {
 
+  pathName=window.location.pathname.substr(1);
   searchItems:Search[];
   basket$: Observable<IBasket>
   bio:Bio;
@@ -29,6 +30,7 @@ export class MainNavbarComponent implements OnInit {
               ,private basketService: BasketService
               ,private http:HttpClient) { }
 
+
   ngOnInit(): void {
     this.getBio();
     if(this.authService.loggedIn()){
@@ -38,7 +40,7 @@ export class MainNavbarComponent implements OnInit {
 
   search(event):Observable<Search[]>{
     const paramsIoS = new HttpParams().set('name', event.target.value)
-      .set('path', window.location.pathname.substr(1))
+      .set('path', this.pathName)
 
     this.http.get<Search[]>(environment.baseUrl+'search',{params: paramsIoS})
       .pipe(
@@ -70,7 +72,7 @@ export class MainNavbarComponent implements OnInit {
 
   }
 
-  lorem(event) {
+  changeInputValue(event) {
     event.target.value="";
   }
 }

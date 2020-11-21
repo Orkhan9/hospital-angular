@@ -18,10 +18,13 @@
         <div *ngIf="i<6">
           <div class="doctor-item">
             <div class="img-box">
-              <img class="img-fluid" src="assets/images/doctors/01_doctors.jpg" alt="01 Doctor">
+              <a [routerLink]="['/doctor/detail/',doctor.id]">
+                <img class="img-fluid" src="assets/images/doctors/01_doctors.jpg" alt="01 Doctor">
+              </a>
             </div>
             <div class="text-box text-center">
-              <h5>{{doctor.name}}</h5>
+              <a class="h5 d-block font-weight-bolder mt-3" style="text-decoration: none;"
+                 [routerLink]="['/doctor/detail/',doctor.id]">{{doctor.name}}</a>
               <span>{{doctor.profession}}</span>
               <p>{{doctor.description}}</p>
               <ul>
@@ -30,6 +33,9 @@
                 <li><a href="#"><i class="fab fa-instagram"></i></a></li>
                 <li><a href="#"><i class="fab fa-dribbble"></i></a></li>
               </ul>
+              <div class="add-to-card">
+                <a [routerLink]="['/doctor/detail/',doctor.id]" class="btn-4 h5 font-weight-bolder">Details</a>
+              </div>
             </div>
           </div>
         </div>

@@ -14,17 +14,21 @@ export class AppComponent implements OnInit{
   constructor(private authService:AuthService,private basketService:BasketService) {
   }
   ngOnInit() {
-    const token=localStorage.getItem("token");
-    if (token){
-      this.authService.decodedToken=this.jwtHelper.decodeToken(token);
-    }
-    const basketId=localStorage.getItem(this.jwtHelper.decodeToken(token).unique_name)
-    if (basketId){
-      this.basketService.getBasket(basketId).subscribe(()=>{
-        console.log("basket initialize" + basketId);
-      },error => {
-        console.log(error);
-      })
-    }
+    this.getBasket()
+}
+
+getBasket(){
+  const token=localStorage.getItem("token");
+  if (token){
+    this.authService.decodedToken=this.jwtHelper.decodeToken(token);
+  }
+  const basketId=localStorage.getItem(this.jwtHelper.decodeToken(token).unique_name)
+  if (basketId){
+    this.basketService.getBasket(basketId).subscribe(()=>{
+      console.log("basket initialize" + basketId);
+    },error => {
+      console.log(error);
+    })
+  }
 }
 }

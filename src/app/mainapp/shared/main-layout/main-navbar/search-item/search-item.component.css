@@ -5,7 +5,13 @@ li{
   padding-left: 15px;
 }
 
+.nameSearch{
+  line-height: 40px;
+}
+
 a{
   color:white;
   text-decoration: none;
 }
+
+

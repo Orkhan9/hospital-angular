@@ -24,13 +24,10 @@ export class AuthService {
 
             if (this.decodedToken.role=="admin"){
               this.route.navigate(['admin'])
-
             }else{
               this.route.navigate([''])
             }
-
           }
-
         })
       )
   }

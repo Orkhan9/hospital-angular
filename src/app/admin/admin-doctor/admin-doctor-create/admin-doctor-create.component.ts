@@ -48,31 +48,15 @@ export class AdminDoctorCreateComponent implements OnInit {
       })
   }
 
-  filetoupload:File=null;
-  selectFile(event) {
-    this.filetoupload=event.target.files[0];
-    this.fileService.createFile(this.filetoupload).subscribe(data=>console.log(data))
+  fileToUpload: File = null;
 
-
-
-
-
-
-
-  // if(event.target.files){
-  //   const formData = new FormData();
-  //   formData.append('file[]',event.target.files[0]);
-  //   let reader=new FileReader();
-  //   let file=event.target.files[0];
-  //   reader.readAsDataURL(file);
-  //   reader.onload=()=>{
-  //     this.photo=(<string>reader.result).split(',')[1];
-  //   }
-  //   this.fileService.createFile(file).subscribe(x=> {
-  //     console.log(x);
-  //   },error=>this.toastr.error(error));
-  //   console.log(file);
-// }
+  handleFileInput(event) {
+    this.fileToUpload=event.target.files[0];
+    this.fileService.postFile(this.fileToUpload).subscribe(data => {
+      // do something, if upload success
+    }, error => {
+      console.log(error);
+    });
   }
 
   onSubmit() {
@@ -85,7 +69,6 @@ export class AdminDoctorCreateComponent implements OnInit {
       doctor.facebook=this.form.value.facebook;
       doctor.photoUrl=this.photo;
       doctor.departmentId=+this.form.value.departmentId;
-      //console.log(doctor.photo);
       this.doctorService.createDoctor(doctor).subscribe(x=> {
         console.log(x);
         this.route.navigate(['/admin/doctor']);
@@ -120,3 +103,19 @@ export class AdminDoctorCreateComponent implements OnInit {
 
 
 }
+
+//fileupload base64
+// if(event.target.files){
+//   const formData = new FormData();
+//   formData.append('file[]',event.target.files[0]);
+//   let reader=new FileReader();
+//   let file=event.target.files[0];
+//   reader.readAsDataURL(file);
+//   reader.onload=()=>{
+//     this.photo=(<string>reader.result).split(',')[1];
+//   }
+//   this.fileService.createFile(file).subscribe(x=> {
+//     console.log(x);
+//   },error=>this.toastr.error(error));
+//   console.log(file);
+// }

@@ -1,14 +1,15 @@
 <span *ngIf="pathName=='home' || pathName=='doctor'">
-<li ><a [routerLink]="['doctor/detail/',searchItem.id]">{{searchItem.name}}</a></li>
+<li class="nameSearch"><a [routerLink]="['doctor/detail/',searchItem.id]">{{searchItem.name}}</a></li>
 </span>
 
 <span *ngIf="pathName=='department'">
-<li ><a [routerLink]="['department/detail/',searchItem.id]">{{searchItem.name}}</a></li>
+<li class="nameSearch"><a [routerLink]="['department/detail/',searchItem.id]">{{searchItem.name}}</a></li>
 </span>
 
 <span *ngIf="pathName=='shop'">
-<li ><a [routerLink]="['product/detail/',searchItem.id]">{{searchItem.name}}</a></li>
+<li class="nameSearch"><a [routerLink]="['product/detail/',searchItem.id]">{{searchItem.name}}</a></li>
 </span>
+
 
 <span *ngIf="pathName=='blog'">
 <li ><a [routerLink]="['blog/detail/',searchItem.id]">{{searchItem.title}}</a></li>
