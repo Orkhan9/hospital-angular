@@ -29,7 +29,7 @@ export class AdminDoctorUpdateComponent implements OnInit {
   ngOnInit(): void {
     this.formUpdate();
     this.getDepartments();
-    this.getDoctorbyId();
+    this.getDoctorById();
   }
 
   formUpdate(){
@@ -42,7 +42,7 @@ export class AdminDoctorUpdateComponent implements OnInit {
     });
   }
 
-  getDoctorbyId(){
+  getDoctorById(){
     this.doctorService.getDoctorbyId(+this.activatedRoute.snapshot.params.id)
       .subscribe(doctor=>{
         this.doctor=doctor,

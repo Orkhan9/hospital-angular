@@ -23,7 +23,7 @@ export class DoctorService {
     return this.http.get<Doctor[]>(environment.baseUrl+"doctor/GetDoctorByDepartment/"+id)
   }
 
-  createDoctor(doctor:Doctor){
+  createDoctor(doctor:FormData){
     return this.http.post(environment.baseUrl + 'doctor',doctor);
   }
 

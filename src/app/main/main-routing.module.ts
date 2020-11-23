@@ -44,4 +44,4 @@ const route:Routes=[
   ],
   exports:[RouterModule]
 })
-export class MainappRoutingModule { }
+export class MainRoutingModule { }

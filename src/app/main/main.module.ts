@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {MainappRoutingModule} from './mainapp-routing.module';
+import {MainRoutingModule} from './main-routing.module';
 import {MainLayoutComponent} from './shared/main-layout/main-layout.component';
 import {HomePageComponent} from './home-page/home-page.component';
 import {MainNavbarComponent} from './shared/main-layout/main-navbar/main-navbar.component';
@@ -88,7 +88,7 @@ import {ShopProductItemComponent} from './shop-page/shop-product-item/shop-produ
     ],
     imports: [
         CommonModule,
-        MainappRoutingModule,
+        MainRoutingModule,
         BreadcrumbModule,
         CarouselModule.forRoot(),
         FormsModule,
@@ -96,4 +96,4 @@ import {ShopProductItemComponent} from './shop-page/shop-product-item/shop-produ
     ],
   exports:[]
 })
-export class MainappModule { }
+export class MainModule { }

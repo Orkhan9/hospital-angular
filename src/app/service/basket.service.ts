@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {environment} from '../../environments/environment';
 import {BehaviorSubject} from 'rxjs';
-import {Basket, IBasket, IBasketItem, IBasketTotals} from '../mainapp/basket/basket';
+import {Basket, IBasket, IBasketItem, IBasketTotals} from '../main/basket/basket';
 import { IProduct} from '../models/product';
 import {map} from 'rxjs/operators';
 import {ProductService} from './product.service';
