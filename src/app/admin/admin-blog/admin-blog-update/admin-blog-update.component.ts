@@ -1,5 +1,5 @@
-import {Component, HostListener, OnInit} from '@angular/core';
-import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {Component, HostListener, OnInit, ViewChild} from '@angular/core';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {Department} from '../../../models/department';
 import {Doctor} from '../../../models/doctor';
 import {DoctorService} from '../../../service/doctor.service';
@@ -16,18 +16,35 @@ import {BlogService} from '../../../service/blog.service';
 })
 export class AdminBlogUpdateComponent implements OnInit {
 
+  get _title(){
+    return this.form.get('title');
+  }
+
+  get _topic(){
+    return this.form.get('topic');
+  }
+
+  get _description(){
+    return this.form.get('description');
+  }
+
+  @ViewChild('file') file;
+  formData: FormData = new FormData();
   form: FormGroup;
   blog:Blog;
+
   @HostListener('window:beforeunload',['$event'])
   unloadNotification($event:any, isSub:boolean){
     if (this.form.dirty){
       $event.returnValue=true;
     }
   }
-  constructor(private blogService:BlogService
-              ,private route:Router
-              ,private activatedRoute:ActivatedRoute
-              ,private toastr: ToastrService) { }
+
+  constructor(private blogService:BlogService,
+              private route:Router,
+              private activatedRoute:ActivatedRoute,
+              private toastr: ToastrService,
+              private fb:FormBuilder) { }
 
   ngOnInit(): void {
     this.formUpdate();
@@ -35,10 +52,10 @@ export class AdminBlogUpdateComponent implements OnInit {
   }
 
   formUpdate(){
-    this.form = new FormGroup({
-      title:new FormControl('',[Validators.required]),
-      topic:new FormControl('',[Validators.required]),
-      description:new FormControl('',[Validators.required])
+    this.form = this.fb.group({
+      title: ['',[Validators.required]],
+      topic: ['',[Validators.required]],
+      description: ['',[Validators.required]]
     });
   }
 
@@ -52,32 +69,24 @@ export class AdminBlogUpdateComponent implements OnInit {
 
   onSubmit() {
     if(this.form.valid){
-      let blog=new Blog();
-
-      blog.id=this.blog.id,
-      blog.title=this.form.value.title;
-      blog.topic=this.form.value.topic;
-      blog.description=this.form.value.description;
-
-      this.blogService.editBlog(blog).subscribe(x=> {
+      // @ts-ignore
+      this.formData.append('Id', +this.activatedRoute.snapshot.params.id);
+      this.formData.append('Title', this._title.value);
+      this.formData.append('Topic', this._topic.value);
+      this.formData.append('Description', this._description.value);
+      this.blogService.editBlog(this.blog.id,this.formData).subscribe(x=> {
         console.log(x);
         this.route.navigate(['/admin/blog']);
         this.toastr.success('Blog is edited');
       },error=>this.toastr.error(error));
-
     }
   }
 
-  get _title(){
-    return this.form.get('title');
+  fileInput(event: Event) {
+    // @ts-ignore
+    if (event.target.files[0]){
+      // @ts-ignore
+      this.formData.append('Photo', event.target.files[0]);
+    }
   }
-
-  get _topic(){
-    return this.form.get('topic');
-  }
-
-  get _description(){
-    return this.form.get('description');
-  }
-
 }

@@ -27,8 +27,8 @@ export class DoctorService {
     return this.http.post(environment.baseUrl + 'doctor',doctor);
   }
 
-  editDoctor(doctor:Doctor){
-    return this.http.put(environment.baseUrl + 'doctor/' + doctor.id,doctor);
+  editDoctor(id:number,doctor:FormData){
+    return this.http.put(environment.baseUrl + 'doctor/' + id,doctor);
 
   }
 

@@ -15,7 +15,7 @@ export class AboutService {
     return this.http.get<About>(environment.baseUrl+'about')
   }
 
-  editAbout(about:About){
-    return this.http.put(environment.baseUrl + 'about/' + about.id,about);
+  editAbout(id:number,about:FormData){
+    return this.http.put(environment.baseUrl + 'about/' + id,about);
   }
 }

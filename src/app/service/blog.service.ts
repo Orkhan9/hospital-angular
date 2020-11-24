@@ -19,12 +19,12 @@ export class BlogService {
     return this.http.get<Blog>(environment.baseUrl+"blog/"+id)
   }
 
-  createBlog(blog:Blog){
+  createBlog(blog:FormData){
     return this.http.post(environment.baseUrl + 'blog',blog);
   }
 
-  editBlog(blog:Blog){
-    return this.http.put(environment.baseUrl + 'blog/' + blog.id,blog);
+  editBlog(id:number,blog:FormData){
+    return this.http.put(environment.baseUrl + 'blog/' + id,blog);
 
   }
 

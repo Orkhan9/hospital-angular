@@ -3,11 +3,9 @@ import {DoctorService} from '../../../service/doctor.service';
 import {Router} from '@angular/router';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {Department} from '../../../models/department';
-import {Doctor} from '../../../models/doctor';
 import {ToastrService} from 'ngx-toastr';
 import {DepartmentService} from '../../../service/department.service';
 import {HttpClient} from '@angular/common/http';
-import {FileService} from '../../../service/file.service';
 
 @Component({
   selector: 'app-admin-doctor-create',
@@ -16,8 +14,6 @@ import {FileService} from '../../../service/file.service';
 })
 export class AdminDoctorCreateComponent implements OnInit {
 
-  @ViewChild('file') file;
-  formData: FormData = new FormData();
 
   get _name(){
     return this.form.get('name');
@@ -39,17 +35,16 @@ export class AdminDoctorCreateComponent implements OnInit {
     return this.form.get('departmentId');
   }
 
-  get _photoUrl(){
-    return this.form.get('photoUrl');
-  }
+  @ViewChild('file') file;
+  formData: FormData = new FormData();
   form: FormGroup;
   departments:Department[];
-  photo:string;
+
   constructor(private doctorService:DoctorService,
               private route:Router,
-              private toastr: ToastrService,private departmentService:DepartmentService,
+              private toastr: ToastrService,
+              private departmentService:DepartmentService,
               private http:HttpClient,
-              private fileService:FileService,
               private fb: FormBuilder
               ) { }
 
@@ -78,16 +73,6 @@ export class AdminDoctorCreateComponent implements OnInit {
       })
   }
 
-  fileToUpload: File = null;
-
-  // handleFileInput(event) {
-  //   this.fileToUpload=event.target.files[0];
-  //   this.fileService.postFile(this.fileToUpload).subscribe(data => {
-  //     // do something, if upload success
-  //   }, error => {
-  //     console.log(error);
-  //   });
-  // }
 
   onSubmit() {
     if(this.file.nativeElement.files.length < 1){
@@ -109,15 +94,18 @@ export class AdminDoctorCreateComponent implements OnInit {
   }
 
 
-  handleFileInput(event: Event) {
+  fileInput(event: Event) {
     // @ts-ignore
     if (event.target.files[0]){
       // @ts-ignore
       this.formData.append('Photo', event.target.files[0]);
-      console.log(this.file.nativeElement.files);
     }
   }
 }
+
+
+
+
 
 //fileupload base64
 // if(event.target.files){

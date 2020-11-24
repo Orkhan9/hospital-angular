@@ -1,6 +1,6 @@
-import {Component, HostListener, OnInit} from '@angular/core';
-import {FormControl, FormGroup, Validators} from '@angular/forms';
-import { Router} from '@angular/router';
+import {Component, HostListener, OnInit, ViewChild} from '@angular/core';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import {ActivatedRoute, Router} from '@angular/router';
 import {ToastrService} from 'ngx-toastr';
 import {About} from '../../../models/about';
 import {AboutService} from '../../../service/about.service';
@@ -12,16 +12,31 @@ import {AboutService} from '../../../service/about.service';
 })
 export class AdminAboutUpdateComponent implements OnInit {
 
+  get _title(){
+    return this.form.get('title');
+  }
+
+  get _description(){
+    return this.form.get('description');
+  }
+
+  @ViewChild('file') file;
+  formData: FormData = new FormData();
   form: FormGroup;
   about:About;
+
   @HostListener('window:beforeunload',['$event'])
   unloadNotification($event:any, isSub:boolean){
     if (this.form.dirty){
       $event.returnValue=true;
     }
   }
-  constructor(private aboutService:AboutService,private route:Router
-    ,private toastr: ToastrService) { }
+
+  constructor(private aboutService:AboutService,
+              private route:Router,
+              private toastr: ToastrService,
+              private fb:FormBuilder,
+              private activatedRoute:ActivatedRoute) { }
 
   ngOnInit(): void {
     this.formUpdate();
@@ -29,9 +44,9 @@ export class AdminAboutUpdateComponent implements OnInit {
   }
 
   formUpdate(){
-    this.form = new FormGroup({
-      title:new FormControl('',[Validators.required]),
-      description:new FormControl('',[Validators.required])
+    this.form = this.fb.group({
+      title: ['',[Validators.required]],
+      description: ['',[Validators.required]]
     });
   }
 
@@ -46,26 +61,23 @@ export class AdminAboutUpdateComponent implements OnInit {
 
   onSubmit() {
     if(this.form.valid){
-      let about=new About();
-
-      about.id=this.about.id;
-      about.title=this.form.value.title;
-      about.description=this.form.value.description;
-      this.aboutService.editAbout(about).subscribe(x=> {
+      // @ts-ignore
+      this.formData.append('Id', +this.activatedRoute.snapshot.params.id);
+      this.formData.append('Title', this._title.value);
+      this.formData.append('Description', this._description.value);
+      this.aboutService.editAbout(this.about.id,this.formData).subscribe(x=> {
         console.log(x);
         this.route.navigate(['/admin/about']);
         this.toastr.success('About is edited');
       },error=>this.toastr.error(error));
-
     }
   }
 
-  get _title(){
-    return this.form.get('title');
+  fileInput(event: Event) {
+    // @ts-ignore
+    if (event.target.files[0]){
+      // @ts-ignore
+      this.formData.append('Photo', event.target.files[0]);
+    }
   }
-
-  get _description(){
-    return this.form.get('description');
-  }
-
 }

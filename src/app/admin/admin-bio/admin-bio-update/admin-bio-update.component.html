@@ -1,7 +1,7 @@
 <div class="container mt-5">
   <div class="row mt-3">
     <div class="col-sm-4 mt-3">
-      <h1>Update About</h1>
+      <h1>Update Bio</h1>
     </div>
     <div class="col-sm-8 mt-3">
       <div *ngIf="form.dirty" class="alert alert-info">
@@ -10,6 +10,11 @@
     </div>
     <div class="col">
       <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+        <div class="form-group">
+          <label>Photo</label>
+          <input type="file" #file (change)="fileInput($event)" class="form-control" placeholder="photo">
+        </div>
 
         <div class="form-group">
           <label>Phone</label>

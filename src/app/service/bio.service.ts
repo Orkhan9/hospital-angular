@@ -16,7 +16,7 @@ export class BioService {
     return this.http.get<Bio>(environment.baseUrl+'bio')
   }
 
-  editBio(bio:Bio){
-    return this.http.put(environment.baseUrl + 'bio/' + bio.id,bio);
+  editBio(id:number,bio:FormData){
+    return this.http.put(environment.baseUrl + 'bio/' + id,bio);
   }
 }
