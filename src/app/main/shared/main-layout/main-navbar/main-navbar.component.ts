@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthService} from '../../../../service/auth.service';
-import {AlertifyService} from '../../../../service/alertify.service';
 import {JwtHelperService} from '@auth0/angular-jwt';
 import {BioService} from '../../../../service/bio.service';
 import {Bio} from '../../../../models/bio';
@@ -11,6 +10,7 @@ import {HttpClient, HttpParams} from '@angular/common/http';
 import {environment} from '../../../../../environments/environment';
 import {tap} from 'rxjs/operators';
 import {Search} from '../../../../models/search';
+import {ToastrService} from 'ngx-toastr';
 
 @Component({
   selector: 'app-main-navbar',
@@ -24,11 +24,12 @@ export class MainNavbarComponent implements OnInit {
   basket$: Observable<IBasket>
   bio:Bio;
   helper=new JwtHelperService();
-  constructor(public authService:AuthService
-              ,private alertify:AlertifyService
-              ,private bioService:BioService
-              ,private basketService: BasketService
-              ,private http:HttpClient) { }
+
+  constructor(public authService:AuthService,
+              private bioService:BioService,
+              private basketService: BasketService,
+              private http:HttpClient,
+              private toastr:ToastrService) { }
 
 
   ngOnInit(): void {
@@ -46,7 +47,7 @@ export class MainNavbarComponent implements OnInit {
       .pipe(
       tap(data => console.log('Checked')
     )).subscribe(data=>{
-      this.searchItems=data
+      this.searchItems=data;
     })
     return
   }
@@ -66,10 +67,7 @@ export class MainNavbarComponent implements OnInit {
 
   logOut(){
     localStorage.removeItem('token');
-    this.alertify.warning("logged out")
-
-
-
+    this.toastr.warning("User is logged out")
   }
 
   changeInputValue(event) {

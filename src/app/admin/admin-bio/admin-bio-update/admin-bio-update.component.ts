@@ -92,5 +92,4 @@ export class AdminBioUpdateComponent implements OnInit {
       this.formData.append('Logo', event.target.files[0]);
     }
   }
-
 }

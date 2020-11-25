@@ -1,12 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthService} from '../../service/auth.service';
-import {AlertifyService} from '../../service/alertify.service';
 import {Router} from '@angular/router';
 import {RoleService} from '../../service/role.service';
 import {Role} from '../../models/role';
 import {AbstractControl, FormControl, FormGroup, ValidatorFn, Validators} from '@angular/forms';
 import {ToastrService} from 'ngx-toastr';
-import {getControlsValue} from 'ngx-bootstrap/timepicker/timepicker-controls.util';
 
 @Component({
   selector: 'app-register-page',
@@ -14,11 +12,28 @@ import {getControlsValue} from 'ngx-bootstrap/timepicker/timepicker-controls.uti
   styleUrls: ['./register-page.component.css']
 })
 export class RegisterPageComponent implements OnInit {
+
+  get _username(){
+    return this.form.get('username');
+  }
+
+  get _email(){
+    return this.form.get('email');
+  }
+
+  get _password(){
+    return this.form.get('password');
+  }
+
+  get _checkPassword(){
+    return this.form.get('checkPassword');
+  }
+
   form:FormGroup;
   // model:any={};
   roles:Role[];
+
   constructor(private authService:AuthService,
-              private alertify:AlertifyService ,
               private route:Router,
               private roleService:RoleService,
               private toastr:ToastrService) { }
@@ -52,7 +67,7 @@ export class RegisterPageComponent implements OnInit {
         this.route.navigate(['login']);
         this.toastr.success('Register is successful');
         // const token=localStorage.getItem("token")
-      },error=>this.alertify.error(error));
+      },error=>this.toastr.error(error));
     }
   }
 
@@ -62,24 +77,11 @@ matchValues(match:string):ValidatorFn{
       ? null :{isMatching:true}
     }
 }
-  // register(){
-  //   this.model.roleId=2;
-  //   //console.log(this.model.roleId)
-  //   this.authService.register(this.model).subscribe(()=>{
-  //     // console.log("register successfuly")
-  //     this.alertify.success("register successfuly");
-  //     this.route.navigate(['']);
-  //   },error => {
-  //     // console.log(error)
-  //     this.alertify.error(error)
-  //   })
-  //
-  // }
-
 
   cancel(){
     this.route.navigate(['']);
   }
+
   getAllRoles(){
     this.roleService.getRoles().subscribe(roles=>{this.roles=roles
       },
@@ -87,21 +89,20 @@ matchValues(match:string):ValidatorFn{
       console.log(error)
       })
   }
-
-  get _username(){
-    return this.form.get('username');
-  }
-
-  get _email(){
-    return this.form.get('email');
-  }
-
-  get _password(){
-    return this.form.get('password');
-  }
-
-  get _checkPassword(){
-    return this.form.get('checkPassword');
-  }
-
 }
+
+
+
+// register(){
+//   this.model.roleId=2;
+//   //console.log(this.model.roleId)
+//   this.authService.register(this.model).subscribe(()=>{
+//     // console.log("register successfuly")
+//     this.alertify.success("register successfuly");
+//     this.route.navigate(['']);
+//   },error => {
+//     // console.log(error)
+//     this.alertify.error(error)
+//   })
+//
+// }

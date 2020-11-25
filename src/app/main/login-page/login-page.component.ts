@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthService} from '../../service/auth.service';
-import {AlertifyService} from '../../service/alertify.service';
 import {Router} from '@angular/router';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {ToastrService} from 'ngx-toastr';
@@ -13,11 +12,19 @@ import {BasketService} from '../../service/basket.service';
   styleUrls: ['./login-page.component.css']
 })
 export class LoginPageComponent implements OnInit {
+
+  get _username(){
+    return this.form.get('username');
+  }
+
+  get _password(){
+    return this.form.get('password');
+  }
+
   form:FormGroup
   // model:any={};
   helper=new JwtHelperService();
   constructor(public authService:AuthService
-              ,private alertify:AlertifyService
               ,private route:Router
               ,private toastr: ToastrService
               ,private basketService:BasketService) { }
@@ -42,26 +49,18 @@ export class LoginPageComponent implements OnInit {
       }
       this.authService.login(loginUser).subscribe(x => {
         console.log(x);
-
-      }, error => this.alertify.error(error));
+      this.toastr.info('User is login')
+      }, error => this.toastr.error(error));
     }
   }
 
 
 
-  get _username(){
-    return this.form.get('username');
-  }
-
-  get _password(){
-    return this.form.get('password');
-  }
-
 
   // login(){
   //   this.authService.login(this.model).subscribe(next=>{
-  //     // console.log("login succsesfuly")
-  //     this.alertify.success("login successfuly");
+  //     // console.log("login successfully")
+  //     this.alertify.success("login successfully");
   //     const token=localStorage.getItem("token")
   //
   //     //this.route.navigate([''])

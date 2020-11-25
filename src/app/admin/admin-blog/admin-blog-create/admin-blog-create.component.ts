@@ -51,9 +51,7 @@ export class AdminBlogCreateComponent implements OnInit {
       this.toastr.error('Photo is required,please select photo');
       return;
     }
-
     if(this.form.valid){
-
       this.formData.append('Title', this._title.value);
       this.formData.append('Topic', this._topic.value);
       this.formData.append('Description', this._description.value);
