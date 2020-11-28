@@ -35,4 +35,16 @@ export class ProductService {
   getProductbyId(id:number):Observable<IProduct>{
     return this.http.get<IProduct>(environment.baseUrl+"product/"+id)
   }
+
+  createProduct(product:FormData){
+    return this.http.post(environment.baseUrl + 'product',product);
+  }
+
+  editProduct(id:number,product:FormData){
+    return this.http.put(environment.baseUrl + 'product/' + id,product);
+  }
+
+  deleteProduct(id:number){
+    return this.http.delete(environment.baseUrl + 'product/' + id);
+  }
 }

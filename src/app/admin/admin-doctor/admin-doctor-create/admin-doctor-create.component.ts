@@ -51,7 +51,6 @@ export class AdminDoctorCreateComponent implements OnInit {
   ngOnInit(): void {
     this.formCreate();
     this.getDepartments();
-
   }
 
   formCreate(){

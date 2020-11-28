@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {DepartmentService} from '../../../service/department.service';
+import {ActivatedRoute} from '@angular/router';
+import {Department} from '../../../models/department';
 
 @Component({
   selector: 'app-admin-department-details',
@@ -7,9 +10,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminDepartmentDetailsComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private departmentService:DepartmentService,private activatedRoute:ActivatedRoute) { }
+  department:Department;
   ngOnInit(): void {
+    this.getDepartmentById();
+  }
+
+  getDepartmentById(){
+    this.departmentService.getDepartmentbyId(+this.activatedRoute.snapshot.params.id)
+      .subscribe(department=>{
+        this.department=department,
+          error=>console.log(error)
+      })
   }
 
 }

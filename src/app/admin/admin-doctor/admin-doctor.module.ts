@@ -11,7 +11,8 @@ import {ReactiveFormsModule} from '@angular/forms';
 
 
 @NgModule({
-  declarations: [AdminDoctorComponent,AdminDoctorCreateComponent, AdminDoctorUpdateComponent, AdminDoctorItemComponent, AdminDoctorDetailsComponent],
+  declarations: [AdminDoctorComponent,AdminDoctorCreateComponent, AdminDoctorUpdateComponent, AdminDoctorItemComponent,
+    AdminDoctorDetailsComponent],
     imports: [
         CommonModule,
         AdminDoctorRoutingModule,

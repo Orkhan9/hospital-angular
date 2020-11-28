@@ -1,23 +1,31 @@
-<div class="container mt-5">
-  <div class="row mt-3">
-    <div class="col-md-4" >
-      <div class="card mb-4 box-shadow">
-        <img class="card-img-top" style="height: 225px; width: 100%; display: block;" src="{{doctor.photoUrl}}">
-        <div class="card-body">
-          <h4>Name: {{doctor.name}}</h4>
-          <h5>Profession: {{doctor.profession}}</h5>
-          <h5>Facebook: {{doctor.facebook}}</h5>
-          <h5 class="card-text">Department: {{doctor.department}}</h5>
-          <p>Description: {{doctor.description}}</p>
-          <div class="d-flex justify-content-between align-items-center">
-            <div class="btn-group">
-              <button type="button" class="btn btn-sm btn-outline-success" [routerLink]="['/doctor/',doctor.id]">View</button>
-              <button type="button" class="btn btn-sm btn-outline-warning">Edit</button>
-            </div>
-          </div>
+<section class="shop area py-100">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="img-box">
+          <img class="img-fluid" src="assets/images/doctors/01_doctors.jpg" alt="01 Doctor">
+        </div>
+      </div>
+      <div class="col-lg-6 d-flex align-items-center">
+        <div class="text-box-details">
+          <h3 class="title-product">{{doctor.name}}</h3>
+          <p>{{doctor.description}}</p>
+          <ul class="list-details">
+            <li><span>Profession:</span>{{doctor.profession}}</li>
+            <li><span>Department:</span>{{doctor.department}}</li>
+            <li>
+              <a href="{{doctor.facebook}}"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
   </div>
-</div>
+</section>
+
+
+
+
 
