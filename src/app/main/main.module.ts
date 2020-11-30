@@ -42,6 +42,7 @@ import { ProductDetailPageComponent } from './product-detail-page/product-detail
 import { BlogDetailPageComponent } from './blog-detail-page/blog-detail-page.component';
 import {ShopPageComponent} from './shop-page/shop-page.component';
 import {ShopProductItemComponent} from './shop-page/shop-product-item/shop-product-item.component';
+import {PaginationModule} from 'ngx-bootstrap/pagination';
 
 
 
@@ -92,7 +93,8 @@ import {ShopProductItemComponent} from './shop-page/shop-product-item/shop-produ
         BreadcrumbModule,
         CarouselModule.forRoot(),
         FormsModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        PaginationModule
     ],
   exports:[]
 })

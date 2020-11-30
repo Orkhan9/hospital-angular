@@ -10,7 +10,7 @@ import {catchError} from 'rxjs/operators';
 
 export class ProductResolver implements Resolve<IProduct[]>{
   pageNumber=1;
-  pageSize=5;
+  pageSize=3;
 
   constructor(private productService:ProductService
               ,private router:Router

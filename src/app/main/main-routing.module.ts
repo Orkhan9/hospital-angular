@@ -14,6 +14,7 @@ import {DepartmentDetailPageComponent} from './department-detail-page/department
 import {BlogDetailPageComponent} from './blog-detail-page/blog-detail-page.component';
 import {ProductDetailPageComponent} from './product-detail-page/product-detail-page.component';
 import {ShopPageComponent} from './shop-page/shop-page.component';
+import {ProductResolver} from './shop-page/product-resolver';
 
 const route:Routes=[
   {path:'',component:MainLayoutComponent,data:{breadcrumb:'Home'},children:[
@@ -26,7 +27,9 @@ const route:Routes=[
       {path:'department/detail/:id',component:DepartmentDetailPageComponent},
       {path:'blog',component:BlogPageComponent},
       {path:'blog/detail/:id',component:BlogDetailPageComponent},
-      {path:'shop',component:ShopPageComponent},
+      {path:'shop',component:ShopPageComponent ,  resolve: {
+          products: ProductResolver
+        }},
       {path:'product/detail/:id',component:ProductDetailPageComponent},
       {path: 'basket', loadChildren: ()=> import('./basket/basket.module').then(mod => mod.BasketModule)},
       {path:'contact',component:ContactPageComponent},

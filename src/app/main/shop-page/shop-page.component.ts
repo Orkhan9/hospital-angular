@@ -12,8 +12,6 @@ import {ActivatedRoute} from '@angular/router';
 })
 export class ShopPageComponent implements OnInit {
 
-  pageNumber;
-  pageSize=6;
   products:IProduct[];
   pagination:Pagination;
   constructor(private productService:ProductService
@@ -21,23 +19,24 @@ export class ShopPageComponent implements OnInit {
               ,private route:ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.getAllProducts()
-    // this.route.data.subscribe(data=>{
-    //   this.products=data['product'].result;
-    // })
+    this.route.data.subscribe(data=>{
+      this.products=data['products'].result;
+      this.pagination=data['products'].pagination;
+    })
   }
 
 
   pageChanged(event:any):void{
     this.pagination.currentPage=event.page;
+    this.getAllProducts()
   }
 
   getAllProducts(){
-    this.productService.getAllProducts(this.pageNumber,this.pageSize)
-      .subscribe(products=>{
-        this.products=products.result;
-        this.pagination=products.pagination;
-        console.log(this.pagination);
+    this.productService.getAllProducts(this.pagination.currentPage,this.pagination.itemsPerPage)
+      .subscribe((res:PaginatedResult<IProduct[]>)=>{
+        this.products=res.result;
+        this.pagination=res.pagination;
+
       })
   }
 

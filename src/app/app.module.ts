@@ -11,6 +11,7 @@ import {ToastrModule} from 'ngx-toastr';
 import {ModalModule} from 'ngx-bootstrap/modal';
 import {PreventUnsavedGuardDepartment, PreventUnsavedGuardDoctor, PreventUnsavedGuardService} from './guards/prevent-unsaved-guard';
 import {PaginationModule} from 'ngx-bootstrap/pagination';
+import {ProductResolver} from './main/shop-page/product-resolver';
 
 
 
@@ -35,7 +36,8 @@ import {PaginationModule} from 'ngx-bootstrap/pagination';
     ErrorInterceptorProvider,
     PreventUnsavedGuardDepartment,
     PreventUnsavedGuardDoctor,
-    PreventUnsavedGuardService
+    PreventUnsavedGuardService,
+    ProductResolver
     ],
   bootstrap: [AppComponent]
 })
