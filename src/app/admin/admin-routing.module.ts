@@ -11,7 +11,8 @@ const route:Routes=[
       {path:'service',loadChildren:()=>import('../admin/admin-service/admin-service.module').then(m=>m.AdminServiceModule)},
       {path:'blog',loadChildren:()=>import('../admin/admin-blog/admin-blog.module').then(m=>m.AdminBlogModule)},
       {path:'about',loadChildren:()=>import('../admin/admin-about/admin-about.module').then(m=>m.AdminAboutModule)},
-      {path:'bio',loadChildren:()=>import('../admin/admin-bio/admin-bio.module').then(m=>m.AdminBioModule)}
+      {path:'bio',loadChildren:()=>import('../admin/admin-bio/admin-bio.module').then(m=>m.AdminBioModule)},
+      {path:'appointment',loadChildren:()=>import('../admin/admin-appointment/admin-appointment.module').then(m=>m.AdminAppointmentModule)}
   ]}
 ]
 

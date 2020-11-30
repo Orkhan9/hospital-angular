@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {DoctorService} from '../../../service/doctor.service';
 import {ActivatedRoute} from '@angular/router';
-import {Doctor} from '../../../models/doctor';
 import {ServiceService} from '../../../service/service.service';
 import {Service} from '../../../models/service';
 
@@ -15,16 +13,15 @@ export class AdminServiceDetailsComponent implements OnInit {
   constructor(private serviceService:ServiceService,private activatedRoute:ActivatedRoute) { }
   service:Service;
   ngOnInit(): void {
-    this.getDoctorbyId();
+    this.getServiceById();
   }
 
-  getDoctorbyId(){
+  getServiceById(){
     this.serviceService.getServiceById(+this.activatedRoute.snapshot.params.id)
       .subscribe(service=>{
         this.service=service,
           error=>console.log(error)
       })
-  }OnInit(): void {
   }
 
 }
