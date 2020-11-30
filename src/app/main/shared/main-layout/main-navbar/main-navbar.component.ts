@@ -12,7 +12,6 @@ import {tap} from 'rxjs/operators';
 import {Search} from '../../../../models/search';
 import {ToastrService} from 'ngx-toastr';
 import {NavigationStart, Router} from '@angular/router';
-import {strict} from 'assert';
 
 @Component({
   selector: 'app-main-navbar',
@@ -34,18 +33,18 @@ export class MainNavbarComponent implements OnInit,OnDestroy {
               private toastr:ToastrService,
               private elRef: ElementRef,
               private router: Router) {
-    // this.router.events.subscribe(x => {
-    //   if(x instanceof NavigationStart){
-    //     this.pathName=x.url.substr(1);
-    //     if(this.elRef.nativeElement.querySelector('.card') != null){
-    //       if(x.url.substr(1)){
-    //         this.elRef.nativeElement.querySelector('.card').style.display='block';
-    //       }else{
-    //         this.elRef.nativeElement.querySelector('.card').style.display='none';
-    //       }
-    //     }
-    //   }
-    // })
+    this.router.events.subscribe(x => {
+      if(x instanceof NavigationStart){
+        this.pathName=x.url.substr(1);
+        // if(this.elRef.nativeElement.querySelector('.card') != null){
+        //   if(x.url.substr(1)){
+        //     this.elRef.nativeElement.querySelector('.card').style.display='block';
+        //   }else{
+        //     this.elRef.nativeElement.querySelector('.card').style.display='none';
+        //   }
+        // }
+      }
+    })
   }
 
 
@@ -58,11 +57,7 @@ export class MainNavbarComponent implements OnInit,OnDestroy {
 
 
   search(event):Observable<Search[]>{
-    this.router.events.subscribe(x => {
-      if(x instanceof NavigationStart){
-        this.pathName=x.url.substr(1);
-        }
-    })
+    alert(this.pathName)
     const paramsIoS = new HttpParams().set('name', event.target.value)
       .set('path', this.pathName)
 

@@ -83,6 +83,8 @@ export class AdminProductCreateComponent implements OnInit {
 
   fileInput(event: Event) {
     // @ts-ignore
+    console.log(event.target.files[0]);
+    // @ts-ignore
     if (event.target.files[0]){
       // @ts-ignore
       this.formData.append('Photo', event.target.files[0]);
