@@ -57,7 +57,6 @@ export class MainNavbarComponent implements OnInit,OnDestroy {
 
 
   search(event):Observable<Search[]>{
-    alert(this.pathName)
     const paramsIoS = new HttpParams().set('name', event.target.value)
       .set('path', this.pathName)
 

@@ -12,6 +12,7 @@ import {ModalModule} from 'ngx-bootstrap/modal';
 import {PreventUnsavedGuardDepartment, PreventUnsavedGuardDoctor, PreventUnsavedGuardService} from './guards/prevent-unsaved-guard';
 import {PaginationModule} from 'ngx-bootstrap/pagination';
 import {ProductResolver} from './main/shop-page/product-resolver';
+import {DoctorResolver} from './main/doctor-page/doctor-resolver';
 
 
 
@@ -37,7 +38,8 @@ import {ProductResolver} from './main/shop-page/product-resolver';
     PreventUnsavedGuardDepartment,
     PreventUnsavedGuardDoctor,
     PreventUnsavedGuardService,
-    ProductResolver
+    ProductResolver,
+    DoctorResolver
     ],
   bootstrap: [AppComponent]
 })

@@ -3,4 +3,5 @@ export class Service {
   name:string;
   description:string;
   shortDesc:string;
+  iconClass:string;
 }

@@ -17,7 +17,7 @@
       <div class="col-sm-6 col-md-4 col-lg-3" *ngFor="let department of departments;let i=index">
         <div *ngIf="i<8">
           <div class="services-item">
-            <a [routerLink]="['/department/detail/',department.id]"><i class="item-icon flaticon-microscope"></i></a>
+            <a [routerLink]="['/department/detail/',department.id]"><i class="{{department.iconClass}}"></i></a>
             <div class="item-content">
               <a [routerLink]="['/department/detail/',department.id]"><h4>{{department.name}}</h4></a>
               <p>{{department.description}}</p>

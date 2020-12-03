@@ -59,14 +59,16 @@
                   </div>
                 </div>
               </div>
+
               <div class="col-md-6 form-item">
-                <input type="date" formControlName="date" placeholder="MM/DD/YYYY">
+                <input type="datetime-local" formControlName="date" placeholder="MM/DD/YYYY">
                 <div class="validation alert alert-danger" *ngIf="_date.invalid && _date.touched">
                   <div *ngIf="_date.errors?.required">
-                    Department required
+                    Date required
                   </div>
                 </div>
               </div>
+
               <div class="col-md-12 form-item">
                 <textarea formControlName="message" placeholder="Leave Your Message Here....."></textarea>
                 <div class="validation alert alert-danger" *ngIf="_message.invalid && _message.touched">
@@ -75,9 +77,11 @@
                   </div>
                 </div>
               </div>
+
               <div class="col-md-12 form-item">
                 <button type="submit" [disabled]="form.invalid" class="btn btn-primary btn-submit">Submit</button>
               </div>
+
             </div>
           </form>
         </div>

@@ -15,21 +15,22 @@ import {BlogDetailPageComponent} from './blog-detail-page/blog-detail-page.compo
 import {ProductDetailPageComponent} from './product-detail-page/product-detail-page.component';
 import {ShopPageComponent} from './shop-page/shop-page.component';
 import {ProductResolver} from './shop-page/product-resolver';
+import {DoctorResolver} from './doctor-page/doctor-resolver';
 
 const route:Routes=[
   {path:'',component:MainLayoutComponent,data:{breadcrumb:'Home'},children:[
       {path:'',redirectTo:'home',pathMatch:'full'},
       {path:'home',component:HomePageComponent,data:{breadcrumb:'Home'}},
       {path:'about',component:AboutPageComponent,data:{breadcrumb:'About'}},
-      {path:'doctor',component:DoctorPageComponent,data:{breadcrumb:'Doctor'}},
+      {path:'doctor',component:DoctorPageComponent,data:{breadcrumb:'Doctor'},resolve: {
+          doctors: DoctorResolver}},
       {path:'doctor/detail/:id',component:DoctorDetailPageComponent},
       {path:'department',component:DepartmentPageComponent},
       {path:'department/detail/:id',component:DepartmentDetailPageComponent},
       {path:'blog',component:BlogPageComponent},
       {path:'blog/detail/:id',component:BlogDetailPageComponent},
-      {path:'shop',component:ShopPageComponent ,  resolve: {
-          products: ProductResolver
-        }},
+      {path:'shop',component:ShopPageComponent ,resolve: {
+          products: ProductResolver}},
       {path:'product/detail/:id',component:ProductDetailPageComponent},
       {path: 'basket', loadChildren: ()=> import('./basket/basket.module').then(mod => mod.BasketModule)},
       {path:'contact',component:ContactPageComponent},

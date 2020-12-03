@@ -25,7 +25,6 @@ export class ShopPageComponent implements OnInit {
     })
   }
 
-
   pageChanged(event:any):void{
     this.pagination.currentPage=event.page;
     this.getAllProducts()
@@ -39,14 +38,5 @@ export class ShopPageComponent implements OnInit {
 
       })
   }
-
-  // getAllProducts2(){
-  //   this.productService.getAllProducts(this.pagination.currentPage,this.pagination.itemPerPage)
-  //     .subscribe((response:PaginatedResult<IProduct[]>)=>{
-  //       this.products=response.result;
-  //       this.pagination=response.pagination;
-  //     },
-  //       error => this.toastr.error(error));
-  // }
 
 }

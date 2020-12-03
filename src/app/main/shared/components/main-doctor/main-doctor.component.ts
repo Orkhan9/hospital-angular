@@ -22,6 +22,4 @@ export class MainDoctorComponent implements OnInit {
         error=>console.log(error);
     })
   }
-
-
 }
