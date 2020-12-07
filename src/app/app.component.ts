@@ -2,8 +2,8 @@ import {Component, ElementRef, OnDestroy, OnInit} from '@angular/core';
 import {JwtHelperService} from "@auth0/angular-jwt";
 import {AuthService} from "./service/auth.service";
 import {BasketService} from './service/basket.service';
-import {NavigationStart, Router} from '@angular/router';
-
+import {NavigationEnd, NavigationStart, Router} from '@angular/router';
+import { LoadingBarService } from '@ngx-loading-bar/core';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -13,7 +13,11 @@ export class AppComponent implements OnInit{
   title = 'practise';
   isStatus = true;
   jwtHelper=new JwtHelperService();
-  constructor(private authService:AuthService,private basketService:BasketService, private router: Router, private elRef: ElementRef) {
+  constructor(private authService:AuthService,
+              private basketService:BasketService,
+              private router: Router,
+              private elRef: ElementRef,
+              private loadingBar: LoadingBarService) {
    // this.router.events.subscribe(x => {
    //   if(x instanceof NavigationStart){
    //     console.log(x);
@@ -30,6 +34,12 @@ export class AppComponent implements OnInit{
    // })
   }
   ngOnInit() {
+    this.router.events.subscribe((evt) => {
+      if (!(evt instanceof NavigationEnd)) {
+        return;
+      }
+      window.scrollTo(0, 0)
+    });
     this.getBasket()
 }
 

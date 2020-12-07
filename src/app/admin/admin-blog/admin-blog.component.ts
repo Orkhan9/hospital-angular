@@ -11,7 +11,9 @@ import {ToastrService} from 'ngx-toastr';
 export class AdminBlogComponent implements OnInit {
 
   blogs:Blog[];
-  constructor(private blogService:BlogService,private toastrService:ToastrService) { }
+
+  constructor(private blogService:BlogService,
+              private toastrService:ToastrService) { }
 
   ngOnInit(): void {
     this.getAllBlogs()

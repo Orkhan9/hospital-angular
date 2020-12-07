@@ -2,7 +2,7 @@ import {BrowserModule, HAMMER_GESTURE_CONFIG, HammerGestureConfig} from '@angula
 import {NgModule, OnInit} from '@angular/core';
 import { AppComponent } from './app.component';
 import {AppRoutingModule} from './app-routing.module';
-import { HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {NgxSpinnerModule} from 'ngx-spinner';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {ErrorInterceptorProvider} from "./service/error.interceptor";
@@ -13,6 +13,7 @@ import {PreventUnsavedGuardDepartment, PreventUnsavedGuardDoctor, PreventUnsaved
 import {PaginationModule} from 'ngx-bootstrap/pagination';
 import {ProductResolver} from './main/shop-page/product-resolver';
 import {DoctorResolver} from './main/doctor-page/doctor-resolver';
+import {LoadingInterceptor} from './interceptors/loading-interceptor';
 
 
 
@@ -39,7 +40,8 @@ import {DoctorResolver} from './main/doctor-page/doctor-resolver';
     PreventUnsavedGuardDoctor,
     PreventUnsavedGuardService,
     ProductResolver,
-    DoctorResolver
+    DoctorResolver,
+    {provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true}
     ],
   bootstrap: [AppComponent]
 })

@@ -1720,7 +1720,7 @@ th {
 
 label {
   display: inline-block;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0rem !important;
 }
 
 button {
@@ -12715,3 +12715,4 @@ footer.sticky-footer .copyright {
 body.sidebar-toggled footer.sticky-footer {
   width: 100%;
 }
+

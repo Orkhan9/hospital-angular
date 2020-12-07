@@ -54,6 +54,7 @@ select.ng-valid{
 .btn-submit:disabled{
   cursor: not-allowed;
 }
+
 input[type="datetime-local"]::placeholder{
   padding-left: 0px;
 }

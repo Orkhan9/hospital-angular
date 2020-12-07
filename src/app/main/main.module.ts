@@ -16,7 +16,6 @@ import { MainDepartmentComponent } from './shared/components/main-department/mai
 import { MainHomeStatisticComponent } from './home-page/main-home-statistic/main-home-statistic.component';
 import { MainDoctorComponent } from './shared/components/main-doctor/main-doctor.component';
 import { MainHomeAppointmentComponent } from './home-page/main-home-appointment/main-home-appointment.component';
-import { MainHomeGalleryComponent } from './home-page/main-home-gallery/main-home-gallery.component';
 import { MainTestimonialComponent } from './shared/components/main-testimonial/main-testimonial.component';
 import { MainBlogComponent } from './shared/components/main-blog/main-blog.component';
 import { DepartmentPageComponent } from './department-page/department-page.component';
@@ -43,6 +42,7 @@ import { BlogDetailPageComponent } from './blog-detail-page/blog-detail-page.com
 import {ShopPageComponent} from './shop-page/shop-page.component';
 import {ShopProductItemComponent} from './shop-page/shop-product-item/shop-product-item.component';
 import {PaginationModule} from 'ngx-bootstrap/pagination';
+import { MainHomeGalleryComponent } from './home-page/main-home-gallery/main-home-gallery.component';
 
 
 
@@ -63,7 +63,6 @@ import {PaginationModule} from 'ngx-bootstrap/pagination';
     MainHomeStatisticComponent,
     MainDoctorComponent,
     MainHomeAppointmentComponent,
-    MainHomeGalleryComponent,
     MainTestimonialComponent,
     MainBlogComponent,
     DepartmentPageComponent,
@@ -85,7 +84,8 @@ import {PaginationModule} from 'ngx-bootstrap/pagination';
     ProductDetailPageComponent,
     BlogDetailPageComponent,
     ShopPageComponent,
-    ShopProductItemComponent
+    ShopProductItemComponent,
+    MainHomeGalleryComponent
     ],
     imports: [
         CommonModule,

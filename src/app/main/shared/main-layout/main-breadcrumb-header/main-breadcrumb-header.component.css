@@ -1,4 +1,22 @@
 /* :: Breadcrumb Header */
+.breadcrumb-box{
+  padding-top: 10px;
+  background: #ffffffb8;
+  border-radius: 20px;
+}
+
+.list-breadcrumb{
+  padding: 15px 30px;
+  margin-top: 5px !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+label{
+  margin: 0px !important;
+}
+
 .breadcrumb-header{
   background-position: center;
   background-repeat: no-repeat;
@@ -16,12 +34,12 @@
   letter-spacing: .3px;
   margin-bottom: 20px;
   text-transform: uppercase;
-  color: #222;
+  color: teal;
 }
 .breadcrumb-header .breadcrumb-box p{
   text-transform: capitalize;
   font-size: 16px;
-  color: #343434;
+  color: teal;
   font-weight: 600;
   line-height: 25px;
 }

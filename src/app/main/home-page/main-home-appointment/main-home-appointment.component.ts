@@ -52,9 +52,8 @@ export class MainHomeAppointmentComponent implements OnInit {
       console.log(appointment);
       this.appointmentService.createAppointment(appointment).subscribe(x=> {
         console.log(x);
-        this.route.navigate(['']);
         this.toastr.success('Appointment is created');
-        window.location.reload();
+        this.form.reset();
       },error=>this.toastr.error(error));
     }
   }

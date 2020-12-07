@@ -12,7 +12,7 @@ export class BlogService {
   constructor(private http:HttpClient) { }
 
   getAllBlogs():Observable<Blog[]>{
-    return  this.http.get<Blog[]>(environment.baseUrl+'blog')
+    return  this.http.get<Blog[]>(environment.baseUrl+'blog' )
   }
 
   getBlogById(id:number):Observable<Blog>{
