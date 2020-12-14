@@ -87,15 +87,15 @@ import { MainHomeGalleryComponent } from './home-page/main-home-gallery/main-hom
     ShopProductItemComponent,
     MainHomeGalleryComponent
     ],
-    imports: [
-        CommonModule,
-        MainRoutingModule,
-        BreadcrumbModule,
-        CarouselModule.forRoot(),
-        FormsModule,
-        ReactiveFormsModule,
-        PaginationModule
-    ],
+  imports: [
+    CommonModule,
+    MainRoutingModule,
+    BreadcrumbModule,
+    CarouselModule.forRoot(),
+    FormsModule,
+    ReactiveFormsModule,
+    PaginationModule
+  ],
   exports:[]
 })
 export class MainModule { }

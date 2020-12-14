@@ -27,6 +27,7 @@
 .blog .blog-item .img-box ul li a{
   font-size: 13px;
   text-transform: capitalize;
+  color: white;
 }
 .blog .blog-item .img-box ul li:hover a{
   color: #222;

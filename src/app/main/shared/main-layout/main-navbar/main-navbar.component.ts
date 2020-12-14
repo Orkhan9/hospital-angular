@@ -35,14 +35,8 @@ export class MainNavbarComponent implements OnInit,OnDestroy {
               private router: Router) {
     this.router.events.subscribe(x => {
       if(x instanceof NavigationStart){
+        this.searchItems=[];
         this.pathName=x.url.substr(1);
-        // if(this.elRef.nativeElement.querySelector('.card') != null){
-        //   if(x.url.substr(1)){
-        //     this.elRef.nativeElement.querySelector('.card').style.display='block';
-        //   }else{
-        //     this.elRef.nativeElement.querySelector('.card').style.display='none';
-        //   }
-        // }
       }
     })
   }
